@@ -26,14 +26,14 @@ const theme = createTheme({
     fontFamily: "'Encode Sans', 'Helvetica Neue', Arial, sans-serif",
     h1: {
       fontFamily: "'Playfair Display', Georgia, serif",
-      fontWeight: 500,
+      fontWeight: 700,
       fontSize: '3.5rem',
       letterSpacing: '0.02em',
       lineHeight: 1.2,
     },
     h2: {
       fontFamily: "'Playfair Display', Georgia, serif",
-      fontWeight: 400,
+      fontWeight: 700,
       fontSize: '2.5rem',
       letterSpacing: '0.02em',
     },
@@ -57,6 +57,9 @@ const theme = createTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: {
+        html: {
+          scrollBehavior: 'smooth',
+        },
         '*, *::before, *::after': {
           boxSizing: 'border-box',
         },
@@ -66,6 +69,18 @@ const theme = createTheme({
           color: '#1a1a1a',
           lineHeight: 1.75,
           overflowX: 'hidden',
+        },
+        'section[id]': {
+          scrollMarginTop: '110px',
+        },
+        '.fade-in': {
+          opacity: 0,
+          transform: 'translateY(30px)',
+          transition: 'opacity 0.8s ease, transform 0.8s ease',
+        },
+        '.fade-in.is-visible': {
+          opacity: 1,
+          transform: 'translateY(0)',
         },
         a: {
           color: 'inherit',

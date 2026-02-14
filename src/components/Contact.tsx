@@ -86,7 +86,7 @@ const Contact: FC = () => {
   }, [])
 
   return (
-    <ContactSection id="contact">
+    <ContactSection id="contact" className="fade-in">
       <SectionIntro title="Kontakt" subtitle="Umów wizytę i przekonaj się osobiście" />
       <FormContainer>
         <form onSubmit={handleSubmit} aria-label="Formularz kontaktowy">

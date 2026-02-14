@@ -57,7 +57,7 @@ const StoryImage = styled('img')({
 })
 
 const Story: FC = () => (
-  <StorySection id="story">
+  <StorySection id="story" className="fade-in">
     <SectionIntro
       title="Historia Miejsca"
       subtitle="Jeżyce to dziś jeden z najbardziej pożądanych adresów w Poznaniu"

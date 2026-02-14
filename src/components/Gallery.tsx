@@ -77,7 +77,7 @@ const GalleryItem = styled('figure')(({ theme }) => ({
 }))
 
 const Gallery: FC = () => (
-  <GallerySection id="gallery">
+  <GallerySection id="gallery" className="fade-in">
     <SectionIntro
       title="Galeria"
       subtitle="Przestrzeń, w której designerskie detale spotykają się z funkcjonalnością. Projekt renomowanej pracowni Moosh Interiors."

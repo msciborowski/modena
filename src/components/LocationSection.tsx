@@ -56,7 +56,7 @@ const LocationParagraph = styled('p')({
 })
 
 const LocationSection: FC = () => (
-  <LocationSectionRoot id="location">
+  <LocationSectionRoot id="location" className="fade-in">
     <SectionIntro title="Lokalizacja" subtitle="Jeżyce – najbardziej pożądany adres w Poznaniu" />
     <LocationGrid>
       {locations.map(loc => (

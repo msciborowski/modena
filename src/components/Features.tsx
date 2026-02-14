@@ -63,7 +63,7 @@ const FeatureText = styled('p')({
 })
 
 const Features: FC = () => (
-  <FeaturesSection>
+  <FeaturesSection className="fade-in">
     <SectionIntro title="Udogodnienia" subtitle="Wszystko, czego potrzebujesz, w zasięgu ręki" />
     <FeaturesGrid>
       {features.map(feature => (
