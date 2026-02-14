@@ -93,13 +93,17 @@ const CtaButton = styled('a')(({ theme }) => ({
 const Hero: FC = () => (
   <HeroRoot id="intro">
     <HeroContent>
-      <HeroTitle>Modena by Cordia</HeroTitle>
-      <HeroSubtitle>Jeżyce • Poznań</HeroSubtitle>
+      <HeroTitle>Na sprzedaż</HeroTitle>
+      <HeroSubtitle>Poznań • Jeżyce • Jackowskiego 24</HeroSubtitle>
       <HeroDescription>
-        Wchodzisz i od razu czujesz spójność. Naturalne światło, dopracowany projekt wnętrza. Tu nic nie jest przypadkowe. Każda linia,
-        każda faktura, każdy detal gra w jednej drużynie.
+        Dwupokojowe mieszkanie w inwestycji Modena by Cordia w sercu Jeżyc
+        <br />- wchodzisz i od razu czujesz spójność. Naturalne światło, dopracowany projekt wnętrza.
+        <br />
+        Tu nic nie jest przypadkowe. Każda linia, każda faktura, każdy detal gra w jednej drużynie.
+        <br />
+        Kultowa lokalizacja, funkcjonalność i designerskie detale.
       </HeroDescription>
-      <CtaButton href="#contact">Umów Wizytę</CtaButton>
+      <CtaButton href="#contact">Dowiedz się więcej</CtaButton>
     </HeroContent>
   </HeroRoot>
 )

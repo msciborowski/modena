@@ -23,7 +23,7 @@ const FooterSmall = styled('p')({
 
 const Footer: FC = () => (
   <FooterRoot>
-    <FooterText>Modena by Cordia • ul. Jackowskiego 24, Poznań • Jeżyce</FooterText>
+    <FooterText>Designerskie mieszkanie na sprzedaż • ul. Jackowskiego 24, Poznań • Jeżyce</FooterText>
     <FooterSmall>© 2026 Wszystkie prawa zastrzeżone</FooterSmall>
   </FooterRoot>
 )

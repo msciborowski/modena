@@ -37,11 +37,11 @@ const Nav = styled('nav')({
 })
 
 const Logo = styled('div')(({ theme }) => ({
-  fontFamily: "'Playfair Display', serif",
-  fontSize: '1.5rem',
-  fontWeight: 500,
-  letterSpacing: '0.1em',
-  color: theme.palette.primary.main,
+  img: {
+    height: '2.2rem',
+    width: 'auto',
+    display: 'block',
+  },
 }))
 
 const NavList = styled('ul')({
@@ -77,7 +77,9 @@ const NavLink = styled('a')(({ theme }) => ({
 const Header: FC = () => (
   <HeaderRoot>
     <Nav aria-label="Główna nawigacja">
-      <Logo>MODENA</Logo>
+      <Logo>
+        <img src="modena-logo.svg" alt="Modena logo" />
+      </Logo>
       <NavList>
         {navLinks.map(link => (
           <li key={link.href}>
