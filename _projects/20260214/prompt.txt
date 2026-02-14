@@ -1,0 +1,23 @@
+Create complete react project based on given html and css template
+scan carefully entire application for all the information you need
+
+- configure mui theme to follow based colors 
+- configure default fonts for headers and other components exactly as in given template
+
+While implementing:
+- match your existing project architecture
+- main component is App.tsx, create container and put there all the sub-components extracted straight from the template as Header, Gallery, Contact, Footer etc.
+- page must follow a11y standards
+- page must be both desktop and mobile friendly - this is very important
+
+My coding preferences
+- code must build, and lint must pass
+- no inline styling, prefer styling in component file using @emotion/react
+- make code clean and if in doubt follow Airbnb ESLint rules
+- use functional components only
+- no default exports
+- use arrow functions
+- use strict TypeScript types, no any
+- prefer useMemo over recalculation
+- accessibility compliant
+- avoid unnecessary re-renders in react components
