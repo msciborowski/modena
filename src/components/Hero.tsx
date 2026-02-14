@@ -1,4 +1,5 @@
 import type { FC } from 'react'
+import { useEffect, useState } from 'react'
 import { keyframes } from '@emotion/react'
 import styled from '@emotion/styled'
 
@@ -13,30 +14,43 @@ const fadeInUp = keyframes`
   }
 `
 
+const heroImages = ['images/hero-1.jpg', 'images/hero-2.jpg', 'images/hero-4.jpg']
+
 const HeroRoot = styled('section')(({ theme }) => ({
   minHeight: '100vh',
   position: 'relative',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  background: 'linear-gradient(135deg, #2c1810 0%, #4a3428 100%)',
   overflow: 'hidden',
   textAlign: 'center',
   color: theme.palette.background.default,
   padding: '0 2rem',
-  '&::before': {
-    content: '""',
-    position: 'absolute',
-    inset: 0,
-    background:
-      'url(\'data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="%232c1810"/><circle cx="50" cy="50" r="1" fill="%23c9a961" opacity="0.3"/></svg>\')',
-    opacity: 0.1,
-  },
+  backgroundColor: '#2c1810',
 }))
+
+const BgImage = styled('div')<{ $active: boolean }>(({ $active }) => ({
+  position: 'absolute',
+  inset: 0,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  opacity: $active ? 1 : 0,
+  transition: 'opacity 2s ease-in-out',
+  zIndex: 0,
+}))
+
+const BgOverlay = styled('div')({
+  position: 'absolute',
+  inset: 0,
+  background: 'linear-gradient(135deg, rgba(44,24,16,0.65) 0%, rgba(74,52,40,0.65) 100%)',
+  zIndex: 1,
+  pointerEvents: 'none',
+})
 
 const HeroContent = styled('div')({
   position: 'relative',
-  zIndex: 1,
+  zIndex: 2,
   maxWidth: '900px',
   padding: '0 2rem',
 })
@@ -90,22 +104,37 @@ const CtaButton = styled('a')(({ theme }) => ({
   },
 }))
 
-const Hero: FC = () => (
-  <HeroRoot id="intro">
-    <HeroContent>
-      <HeroTitle>Na sprzedaż</HeroTitle>
-      <HeroSubtitle>Poznań • Jeżyce • Jackowskiego 24</HeroSubtitle>
-      <HeroDescription>
-        Dwupokojowe mieszkanie w inwestycji Modena by Cordia w sercu Jeżyc
-        <br />- wchodzisz i od razu czujesz spójność. Naturalne światło, dopracowany projekt wnętrza.
-        <br />
-        Tu nic nie jest przypadkowe. Każda linia, każda faktura, każdy detal gra w jednej drużynie.
-        <br />
-        Kultowa lokalizacja, funkcjonalność i designerskie detale.
-      </HeroDescription>
-      <CtaButton href="#contact">Dowiedz się więcej</CtaButton>
-    </HeroContent>
-  </HeroRoot>
-)
+const Hero: FC = () => {
+  const [activeIdx, setActiveIdx] = useState(0)
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setActiveIdx(prev => (prev + 1) % heroImages.length)
+    }, 5000)
+    return () => clearInterval(id)
+  }, [])
+
+  return (
+    <HeroRoot id="intro">
+      {heroImages.map((src, i) => (
+        <BgImage key={src} $active={i === activeIdx} style={{ backgroundImage: `url(${src})` }} />
+      ))}
+      <BgOverlay />
+      <HeroContent>
+        <HeroTitle>Na sprzedaż</HeroTitle>
+        <HeroSubtitle>Poznań • Jeżyce • Jackowskiego 24</HeroSubtitle>
+        <HeroDescription>
+          Dwupokojowe mieszkanie w inwestycji Modena by Cordia w sercu Jeżyc
+          <br />- wchodzisz i od razu czujesz spójność. Naturalne światło, dopracowany projekt wnętrza.
+          <br />
+          Tu nic nie jest przypadkowe. Każda linia, każda faktura, każdy detal gra w jednej drużynie.
+          <br />
+          Kultowa lokalizacja, funkcjonalność i designerskie detale.
+        </HeroDescription>
+        <CtaButton href="#contact">Dowiedz się więcej</CtaButton>
+      </HeroContent>
+    </HeroRoot>
+  )
+}
 
 export { Hero }

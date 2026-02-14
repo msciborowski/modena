@@ -4,8 +4,9 @@ import styled from '@emotion/styled'
 type MainProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 const MainRoot = styled('main')({
-  paddingTop: '96px',
+  paddingTop: '84px',
   display: 'block',
+
   '@media (max-width: 768px)': {
     paddingTop: '84px',
   },
