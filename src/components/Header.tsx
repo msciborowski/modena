@@ -36,7 +36,7 @@ const Nav = styled('nav')({
   },
 })
 
-const Logo = styled('div')(({ theme }) => ({
+const Logo = styled('div')(() => ({
   img: {
     height: '2.2rem',
     width: 'auto',
