@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modena by Cordia – Jeżyce | Designerskie 2-pokojowe 42 m²</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --color-bg: #f8f5f1;
+        --color-text: #2d2a25;
+        --color-accent: #b3865e; /* ciepły miedziano-złoty akcent */
+        --color-mid: #8a6f5a;
+        --color-light: #e8e2db;
+        --radius: 12px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Inter', system-ui, sans-serif;
+        background: var(--color-bg);
+        color: var(--color-text);
+        line-height: 1.65;
+        font-size: 1.05rem;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 5vw;
+      }
+
+      /* ── HERO / INTRO ── */
+      header {
+        height: 100vh;
+        min-height: 720px;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.52)),
+          url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=85&w=1600') center/cover no-repeat;
+        color: white;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        position: relative;
+      }
+
+      header .overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, transparent 40%, #0f0d0a 92%);
+      }
+
+      header .content {
+        position: relative;
+        z-index: 2;
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      header h1 {
+        font-size: clamp(3.4rem, 9vw, 7.2rem);
+        margin-bottom: 1.2rem;
+        line-height: 0.92;
+      }
+
+      header p.lead {
+        font-size: 1.5rem;
+        font-weight: 300;
+        max-width: 640px;
+        margin: 0 auto 2.5rem;
+        opacity: 0.92;
+      }
+
+      .btn {
+        display: inline-block;
+        background: var(--color-accent);
+        color: white;
+        padding: 1rem 2.4rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.1rem;
+        transition: all 0.28s ease;
+        box-shadow: 0 6px 20px rgba(179, 134, 94, 0.28);
+      }
+
+      .btn:hover {
+        background: var(--color-mid);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 32px rgba(179, 134, 94, 0.36);
+      }
+
+      /* ── SECTIONS ── */
+      section {
+        padding: 9rem 0 7rem;
+      }
+
+      section h2 {
+        font-size: clamp(2.6rem, 6vw, 4.8rem);
+        text-align: center;
+        margin-bottom: 3.5rem;
+        color: var(--color-mid);
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.6rem;
+      }
+
+      .gallery img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: var(--radius);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        transition:
+          transform 0.4s ease,
+          box-shadow 0.4s ease;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.04);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 2.5rem;
+        margin: 4rem 0;
+      }
+
+      .feature {
+        text-align: center;
+        padding: 2rem;
+        background: white;
+        border-radius: var(--radius);
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+      }
+
+      .feature h3 {
+        margin: 1.2rem 0 0.8rem;
+        font-size: 1.5rem;
+        color: var(--color-mid);
+      }
+
+      .location-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .location-grid img {
+        border-radius: var(--radius);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.14);
+      }
+
+      .map-placeholder {
+        background: #e0d8ce;
+        height: 420px;
+        border-radius: var(--radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        color: #6b5e52;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      /* Form */
+      form {
+        max-width: 620px;
+        margin: 4rem auto 0;
+        background: white;
+        padding: 3rem 2.5rem;
+        border-radius: var(--radius);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: #4a423a;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.9rem 1.2rem;
+        margin-bottom: 1.4rem;
+        border: 1px solid #d8cec4;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 1.05rem;
+      }
+
+      textarea {
+        min-height: 140px;
+        resize: vertical;
+      }
+
+      footer {
+        background: #1a1612;
+        color: #c9c0b5;
+        text-align: center;
+        padding: 4rem 1rem 2rem;
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 780px) {
+        .location-grid {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+        section {
+          padding: 6rem 0 4rem;
+        }
+        header h1 {
+          font-size: clamp(3.2rem, 12vw, 5.8rem);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="overlay"></div>
+      <div class="content">
+        <h1>Modena by Cordia<br />Jeżyce</h1>
+        <p class="lead">Designerskie 2-pokoje 42 m² z dużą loggią • gotowe do zamieszkania • serce Jeżyc • projekt Moosh Interiors</p>
+        <a href="#kontakt" class="btn">Zapytaj o szczegóły →</a>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- GALERIA -->
+      <section id="galeria">
+        <h2>Galeria</h2>
+        <div class="gallery">
+          <!-- Wstaw tu prawdziwe zdjęcia mieszkania / inwestycji -->
+          <img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800"
+            alt="Salon z aneksem kuchennym mid-century"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1600563438938-a9a2721793b1?auto=format&fit=crop&q=80&w=800"
+            alt="Sypialnia z ciepłym drewnem"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1618221195710-dd2dabb60b29?auto=format&fit=crop&q=80&w=800"
+            alt="Łazienka z trawertynowymi akcentami"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&q=80&w=800"
+            alt="Loggia 8 m² z widokiem na zieleń"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1600585154526-990dced4cb0d?auto=format&fit=crop&q=80&w=800"
+            alt="Część wspólna Modena by Cordia"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1600585152915-d208bec867a1?auto=format&fit=crop&q=80&w=800"
+            alt="Dziedziniec osiedlowy"
+          />
+          <!-- Dodaj 4–8 zdjęć więcej według potrzeb -->
+        </div>
+      </section>
+
+      <!-- HISTORIA MIEJSCA -->
+      <section id="historia">
+        <h2>Historia miejsca</h2>
+        <p style="max-width: 720px; margin: 0 auto 2.5rem; font-size: 1.18rem; text-align: center">
+          Modena by Cordia powstała w sercu Jeżyc, w miejscu dawnych zakładów odzieżowych Modena. Dziś to prestiżowa inwestycja, która łączy
+          industrialną przeszłość z współczesną elegancją. Otoczona stuletnimi platanami, kamienicami i tętniącym życiem Rynkiem Jeżyckim –
+          to jeden z najbardziej pożądanych adresów w Poznaniu.
+        </p>
+      </section>
+
+      <!-- O MIESZKANIU -->
+      <section id="o-mieszkaniu" style="background: #fff; margin: 0 -5vw; padding: 9rem 5vw">
+        <div class="container">
+          <h2>O mieszkaniu</h2>
+          <p style="max-width: 760px; margin: 0 auto 3rem; text-align: center; font-size: 1.2rem">
+            42 m² czystej harmonii. Projekt renomowanej pracowni <strong>Moosh Interiors</strong>. Mid-century z nutą lat 70. – jasny dąb,
+            fornir, rattan, trawertyn, vintage meble i autorskie detale.
+          </p>
+
+          <div class="features">
+            <div class="feature">
+              <h3>42 m²</h3>
+              <p>Salon z aneksem + sypialnia + przedpokój + łazienka</p>
+            </div>
+            <div class="feature">
+              <h3>Loggia ~8 m²</h3>
+              <p>Przestrzeń na wieczorne wino z widokiem na zieleń</p>
+            </div>
+            <div class="feature">
+              <h3>Miejsce postojowe</h3>
+              <p>+ komórka lokatorska w cenie</p>
+            </div>
+            <div class="feature">
+              <h3>Gotowe do wejścia</h3>
+              <p>Bez remontu, bez czekania – wprowadź się jutro</p>
+            </div>
+          </div>
+
+          <p style="text-align: center; font-style: italic; color: #6b5e52; margin-top: 2rem">
+            Dla singla, pary lub inwestora – lokalizacja + jakość wykończenia = świetny wynajem / wysoki komfort życia.
+          </p>
+        </div>
+      </section>
+
+      <!-- UDOGODNIENIA -->
+      <section id="udogodnienia">
+        <h2>Udogodnienia</h2>
+        <div class="features">
+          <div class="feature">
+            <h3>Prestiżowy apartamentowiec</h3>
+            <p>Eleganckie części wspólne w czerni i bieli</p>
+          </div>
+          <div class="feature">
+            <h3>Piękny zielony dziedziniec</h3>
+            <p>Strefa relaksu i ciszy na środku osiedla</p>
+          </div>
+          <div class="feature">
+            <h3>Bliskość natury i miasta</h3>
+            <p>Platanowa aleja + tętniące Jeżyce za rogiem</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- LOKALIZACJA -->
+      <section id="lokalizacja">
+        <h2>Jeżyce – serce Poznania</h2>
+        <div class="location-grid">
+          <div>
+            <p style="font-size: 1.2rem; margin-bottom: 1.5rem">
+              Kilka kroków do Rynku Jeżyckiego • tramwaj za rogiem • najlepsze kawiarnie, restauracje, delikatesy • klimat, który przyciąga
+              • jeden z najbardziej pożądanych adresów w mieście.
+            </p>
+            <ul style="font-size: 1.1rem; list-style: none; line-height: 2">
+              <li>→ Rynek Jeżycki – 3 min pieszo</li>
+              <li>→ Tramwaj / komunikacja – 1 min</li>
+              <li>→ Park Kasprowicza – 8 min</li>
+              <li>→ Stare Miasto – 10–12 min tramwajem</li>
+            </ul>
+          </div>
+          <div>
+            <div class="map-placeholder">
+              Tutaj możesz wstawić zrzut ekranu mapy Google z pinezką<br />ul. Jackowskiego / Modena by Cordia
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORMULARZ -->
+      <section id="kontakt">
+        <h2>Skontaktuj się ze mną</h2>
+        <form>
+          <label for="name">Imię i nazwisko</label>
+          <input type="text" id="name" required />
+
+          <label for="phone">Telefon</label>
+          <input type="tel" id="phone" required />
+
+          <label for="email">E-mail</label>
+          <input type="email" id="email" required />
+
+          <label for="message">Wiadomość / pytania</label>
+          <textarea id="message" rows="5"></textarea>
+
+          <button type="submit" class="btn" style="width: 100%; font-size: 1.2rem; padding: 1.2rem">Wyślij zapytanie</button>
+        </form>
+      </section>
+    </div>
+
+    <footer>
+      <p>
+        Modena by Cordia • ul. Jackowskiego, Jeżyce, Poznań<br />
+        Designerskie 2-pokojowe 42 m² z loggią • projekt Moosh Interiors<br /><br />
+        © 2026 – mieszkanie na sprzedaż
+      </p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,798 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modena by Cordia | Jeżyce, Poznań</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-color: #2c1810;
+        --accent-gold: #c9a961;
+        --accent-warm: #d4a574;
+        --bg-cream: #f5f1eb;
+        --text-dark: #1a1a1a;
+        --text-muted: #6b5d52;
+        --spacing-unit: 1.5rem;
+      }
+
+      body {
+        font-family: 'Georgia', 'Times New Roman', serif;
+        color: var(--text-dark);
+        background-color: var(--bg-cream);
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: 'Helvetica Neue', 'Arial', sans-serif;
+        font-weight: 300;
+        letter-spacing: 0.05em;
+      }
+
+      h1 {
+        font-size: 3.5rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      h2::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 60px;
+        height: 2px;
+        background: var(--accent-gold);
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+      }
+
+      p {
+        margin-bottom: 1.2rem;
+        font-size: 1.05rem;
+      }
+
+      /* Header */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(245, 241, 235, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid rgba(201, 169, 97, 0.3);
+      }
+
+      nav {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 1.3rem;
+        font-weight: 300;
+        letter-spacing: 0.15em;
+        color: var(--primary-color);
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 2.5rem;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--text-dark);
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 0.9rem;
+        letter-spacing: 0.05em;
+        transition: color 0.3s ease;
+        text-transform: uppercase;
+        font-weight: 300;
+      }
+
+      nav a:hover {
+        color: var(--accent-gold);
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #2c1810 0%, #4a3428 100%);
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="%232c1810"/><circle cx="50" cy="50" r="1" fill="%23c9a961" opacity="0.3"/></svg>');
+        opacity: 0.1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        color: var(--bg-cream);
+        max-width: 900px;
+        padding: 0 2rem;
+      }
+
+      .hero h1 {
+        font-size: 4.5rem;
+        font-weight: 200;
+        margin-bottom: 1.5rem;
+        animation: fadeInUp 1s ease;
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: var(--accent-gold);
+        margin-bottom: 2rem;
+        letter-spacing: 0.1em;
+        animation: fadeInUp 1.2s ease;
+      }
+
+      .hero-description {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        margin-bottom: 3rem;
+        opacity: 0.9;
+        animation: fadeInUp 1.4s ease;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 1rem 3rem;
+        background: var(--accent-gold);
+        color: var(--primary-color);
+        text-decoration: none;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 0.9rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        border: 2px solid var(--accent-gold);
+        animation: fadeInUp 1.6s ease;
+      }
+
+      .cta-button:hover {
+        background: transparent;
+        color: var(--accent-gold);
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Sections */
+      section {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 6rem 3rem;
+      }
+
+      .section-intro {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 4rem;
+      }
+
+      /* Gallery */
+      .gallery {
+        background: white;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 4/3;
+        background: #e5e1da;
+        cursor: pointer;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.05);
+      }
+
+      .gallery-item::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border: 2px solid transparent;
+        transition: border-color 0.3s ease;
+      }
+
+      .gallery-item:hover::after {
+        border-color: var(--accent-gold);
+      }
+
+      /* Features Grid */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 3rem;
+        margin-top: 3rem;
+      }
+
+      .feature-card {
+        text-align: center;
+        padding: 2.5rem 2rem;
+        background: white;
+        border-radius: 2px;
+        transition: transform 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .feature-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 1.5rem;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent-gold), var(--accent-warm));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+      }
+
+      /* Details Section */
+      .details-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .detail-item {
+        background: white;
+        padding: 2rem;
+        border-left: 3px solid var(--accent-gold);
+      }
+
+      .detail-label {
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+      }
+
+      .detail-value {
+        font-size: 1.4rem;
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+      /* Story Section */
+      .story {
+        background: var(--primary-color);
+        color: var(--bg-cream);
+      }
+
+      .story h2::after {
+        background: var(--accent-gold);
+      }
+
+      .story-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        margin-top: 3rem;
+      }
+
+      .story-text p {
+        color: rgba(245, 241, 235, 0.9);
+      }
+
+      .story-image {
+        aspect-ratio: 3/4;
+        background: #1a1a1a;
+        overflow: hidden;
+      }
+
+      .story-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Location */
+      .location-highlights {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .location-item {
+        padding: 1.5rem;
+        background: white;
+        text-align: center;
+        border-radius: 2px;
+      }
+
+      .location-distance {
+        font-size: 2rem;
+        color: var(--accent-gold);
+        font-weight: 300;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Contact Form */
+      .contact {
+        background: white;
+      }
+
+      .form-container {
+        max-width: 700px;
+        margin: 3rem auto 0;
+      }
+
+      .form-group {
+        margin-bottom: 2rem;
+      }
+
+      label {
+        display: block;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid #d0cac3;
+        background: var(--bg-cream);
+        font-family: 'Georgia', serif;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--accent-gold);
+      }
+
+      textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      button[type='submit'] {
+        width: 100%;
+        padding: 1.2rem;
+        background: var(--primary-color);
+        color: var(--bg-cream);
+        border: 2px solid var(--primary-color);
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 0.9rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      button[type='submit']:hover {
+        background: transparent;
+        color: var(--primary-color);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--primary-color);
+        color: var(--bg-cream);
+        padding: 3rem;
+        text-align: center;
+      }
+
+      footer p {
+        opacity: 0.7;
+        font-size: 0.9rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.5rem;
+        }
+
+        h2 {
+          font-size: 2rem;
+        }
+
+        .hero h1 {
+          font-size: 2.8rem;
+        }
+
+        section {
+          padding: 4rem 1.5rem;
+        }
+
+        nav ul {
+          gap: 1.5rem;
+        }
+
+        nav a {
+          font-size: 0.8rem;
+        }
+
+        .story-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Scroll Animation */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">MODENA</div>
+        <ul>
+          <li><a href="#intro">Start</a></li>
+          <li><a href="#gallery">Galeria</a></li>
+          <li><a href="#story">Historia</a></li>
+          <li><a href="#details">Mieszkanie</a></li>
+          <li><a href="#location">Lokalizacja</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="intro">
+      <div class="hero-content">
+        <h1>Modena by Cordia</h1>
+        <div class="hero-subtitle">Jeżyce • Poznań</div>
+        <p class="hero-description">
+          Wchodzisz i od razu czujesz spójność. Naturalne światło, dopracowany projekt wnętrza. Tu nic nie jest przypadkowe. Każda linia,
+          każda faktura, każdy detal gra w jednej drużynie.
+        </p>
+        <a href="#contact" class="cta-button">Umów Wizytę</a>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery" id="gallery">
+      <div class="section-intro">
+        <h2>Galeria</h2>
+        <p>Przestrzeń, w której designerskie detale spotykają się z funkcjonalnością. Projekt renomowanej pracowni Moosh Interiors.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800" alt="Salon z kuchnią" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800" alt="Sypialnia" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800" alt="Kuchnia" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" alt="Łazienka z trawertynem" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800" alt="Balkon" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800" alt="Dziedziniec" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Story -->
+    <section class="story fade-in" id="story">
+      <div class="section-intro">
+        <h2>Historia Miejsca</h2>
+        <p>Jeżyce to dziś jeden z najbardziej pożądanych adresów w Poznaniu</p>
+      </div>
+      <div class="story-content">
+        <div class="story-text">
+          <h3>Serce Poznania</h3>
+          <p>
+            Jeżyce to dzielnica, która przeszła wyjątkową transformację. Z przemysłowego zakątka miasta stała się najbardziej klimatycznym
+            miejscem w Poznaniu. Historyczna zabudowa splata się tu z nowoczesną architekturą, a lokalne kawiarnie z prestiżowymi
+            restauracjami.
+          </p>
+          <p>
+            Rynek Jeżycki to tętniące życiem centrum dzielnicy. Tu każda sobota to święto lokalności – farmerskie produkty, designerskie
+            bazary, spotkania sąsiedzkie. To miejsce, które buduje społeczność i nadaje ton całej okolicy.
+          </p>
+          <p>
+            Modena by Cordia wpisuje się w ten klimat perfekcyjnie. Prestiżowa inwestycja w sercu Jeżyc, z własnym dziedzińcem, który
+            stanowi kameralną oazę spokoju mimo miejskiego tętna za bramą.
+          </p>
+        </div>
+        <div class="story-image">
+          <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600" alt="Jeżyce Poznań" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Details -->
+    <section id="details">
+      <div class="section-intro">
+        <h2>O Mieszkaniu</h2>
+        <p>42 m² przemyślanej przestrzeni dla kogoś, kto nie chce kompromisów</p>
+      </div>
+
+      <div class="details-grid">
+        <div class="detail-item">
+          <div class="detail-label">Metraż</div>
+          <div class="detail-value">42 m²</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Pokoje</div>
+          <div class="detail-value">2 pokoje</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Loggia</div>
+          <div class="detail-value">8 m²</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Lokalizacja</div>
+          <div class="detail-value">ul. Jackowskiego</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 4rem">
+        <h3>Przestrzeń Życia</h3>
+        <p>
+          <strong>Salon z kuchnią</strong> – Lekkie, otwarte regały, komoda vintage i gramofon dodają charakteru i klimatu mid-century.
+          Jasny dąb przełamany ciepłym fornirem niczym z lat 70. To mieszkanie dla miłośników designu i kolekcjonerów dobrych momentów.
+        </p>
+        <p>
+          W mieszkaniu połączone zostały jasne kolory z delikatnymi akcentami kolorystycznymi. Na części wysokiej zabudowy znajdują się
+          uchwyty z naturalnego czerwonego trawertynu. Z kolei niska zabudowa w dębowym dekorze otwierana jest za pomocą złotej listwy
+          korytkowej.
+        </p>
+        <p>
+          <strong>Łazienka</strong> – Przestrzeń, w której detale tworzą spójną opowieść o harmonii i funkcjonalności. Połączenie
+          trawertynowych uchwytów z chromowaną armaturą, a ozdobny grzejnik w osi wanny nadaje wnętrzu eleganckiej symetrii.
+        </p>
+        <p>
+          <strong>Sypialnia</strong> – Daje ciszę mimo że na dole tętni miasto. Przestrzeń, która pozwala na prawdziwy odpoczynek i
+          regenerację.
+        </p>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section style="background: white">
+      <div class="section-intro">
+        <h2>Udogodnienia</h2>
+        <p>Wszystko, czego potrzebujesz, w zasięgu ręki</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🚗</div>
+          <h3>Miejsce Postojowe</h3>
+          <p>Własne miejsce parkingowe w podziemnym garażu</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📦</div>
+          <h3>Komórka Lokatorska</h3>
+          <p>Dodatkowa przestrzeń magazynowa</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌳</div>
+          <h3>Prywatny Dziedziniec</h3>
+          <p>Pięknie zagospodarowany dziedziniec tylko dla mieszkańców</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏢</div>
+          <h3>Prestiżowa Inwestycja</h3>
+          <p>Modena by Cordia – gwarancja jakości i standardu</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✨</div>
+          <h3>Gotowe do Wejścia</h3>
+          <p>Bez czekania, bez remontów, bez improwizacji</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>Designerskie Wnętrza</h3>
+          <p>Projekt Moosh Interiors – każdy detal przemyślany</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location -->
+    <section id="location">
+      <div class="section-intro">
+        <h2>Lokalizacja</h2>
+        <p>Jeżyce – najbardziej pożądany adres w Poznaniu</p>
+      </div>
+      <div class="location-highlights">
+        <div class="location-item">
+          <div class="location-distance">2 min</div>
+          <p>pieszo do Rynku Jeżyckiego</p>
+        </div>
+        <div class="location-item">
+          <div class="location-distance">50 m</div>
+          <p>do przystanku tramwajowego</p>
+        </div>
+        <div class="location-item">
+          <div class="location-distance">5 min</div>
+          <p>do Centrum Miasta</p>
+        </div>
+        <div class="location-item">
+          <div class="location-distance">∞</div>
+          <p>restauracji i kawiarni w okolicy</p>
+        </div>
+      </div>
+      <div style="margin-top: 3rem">
+        <p>
+          <strong>Rynek Jeżycki</strong> to serce dzielnicy – targ, kawiarnie, restauracje, życie. Tu miasto tętni energią, a jednocześnie
+          zachowuje przyjazną, kameralną atmosferę.
+        </p>
+        <p>
+          Tramwaj za rogiem łączy Cię z całym miastem. Uniwersytet, galerie handlowe, Stary Rynek – wszystko w zasięgu kilkunastu minut.
+        </p>
+        <p>A kiedy chcesz odpocząć od miejskiego tempa – Park Sołacki i tereny zielone wokół Warty czekają tuż obok.</p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <div class="section-intro">
+        <h2>Kontakt</h2>
+        <p>Umów wizytę i przekonaj się osobiście</p>
+      </div>
+      <div class="form-container">
+        <form>
+          <div class="form-group">
+            <label for="name">Imię i nazwisko</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefon</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Wiadomość</label>
+            <textarea id="message" name="message" placeholder="Jestem zainteresowany/a wizytą w mieszkaniu..."></textarea>
+          </div>
+          <button type="submit">Wyślij Zapytanie</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <p>Modena by Cordia • ul. Jackowskiego 24, Poznań • Jeżyce</p>
+      <p style="margin-top: 1rem; font-size: 0.8rem">© 2026 Wszystkie prawa zastrzeżone</p>
+    </footer>
+
+    <script>
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault()
+          const target = document.querySelector(this.getAttribute('href'))
+          if (target) {
+            const headerOffset = 80
+            const elementPosition = target.getBoundingClientRect().top
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth',
+            })
+          }
+        })
+      })
+
+      // Fade in on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      }
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+          }
+        })
+      }, observerOptions)
+
+      document.querySelectorAll('.fade-in').forEach(element => {
+        observer.observe(element)
+      })
+
+      // Form handling
+      document.querySelector('form').addEventListener('submit', function (e) {
+        e.preventDefault()
+        alert('Dziękujemy za zainteresowanie! Skontaktujemy się wkrótce.')
+      })
+    </script>
+  </body>
+</html>

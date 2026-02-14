@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Designerskie Mieszkanie Jeżyce – Modena by Cordia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --beige: #f5f2ec;
+        --brown: #6e5c4f;
+        --dark: #1c1c1c;
+        --gold: #c9a96e;
+        --green: #6b7c6a;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background: var(--beige);
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: 'Playfair Display', serif;
+        letter-spacing: 1px;
+      }
+
+      section {
+        padding: 80px 8%;
+      }
+
+      .intro {
+        height: 100vh;
+        background: url('hero.jpg') center/cover no-repeat;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .intro::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+      }
+
+      .intro-content {
+        position: relative;
+        color: white;
+        max-width: 800px;
+      }
+
+      .intro h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+
+      .intro p {
+        font-size: 20px;
+        opacity: 0.9;
+      }
+
+      .btn {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 14px 32px;
+        background: var(--gold);
+        color: white;
+        text-decoration: none;
+        letter-spacing: 1px;
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        background: #b8955e;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+      }
+
+      .gallery-grid img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        transition: 0.4s;
+        filter: grayscale(20%);
+      }
+
+      .gallery-grid img:hover {
+        transform: scale(1.03);
+        filter: grayscale(0%);
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+      }
+
+      .two-col p {
+        margin-bottom: 16px;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .feature {
+        background: white;
+        padding: 30px;
+        border-left: 4px solid var(--gold);
+      }
+
+      .location {
+        background: #e9e4db;
+      }
+
+      .contact form {
+        display: grid;
+        gap: 20px;
+        max-width: 500px;
+      }
+
+      input,
+      textarea {
+        padding: 14px;
+        border: 1px solid #ccc;
+        font-family: inherit;
+      }
+
+      textarea {
+        min-height: 120px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 40px;
+        background: #1c1c1c;
+        color: white;
+        font-size: 14px;
+      }
+
+      @media (max-width: 768px) {
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+
+        .intro h1 {
+          font-size: 34px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="intro">
+      <div class="intro-content">
+        <h1>Mieszkanie z Charakterem na Jeżycach</h1>
+        <p>Design. Światło. Spójność. 42 m² przemyślanej przestrzeni w sercu miasta.</p>
+        <a href="#kontakt" class="btn">Zapytaj o ofertę</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Galeria</h2>
+      <div class="gallery-grid">
+        <img src="1.jpg" />
+        <img src="2.jpg" />
+        <img src="3.jpg" />
+        <img src="4.jpg" />
+        <img src="5.jpg" />
+        <img src="6.jpg" />
+      </div>
+    </section>
+
+    <section class="two-col">
+      <div>
+        <h2>Historia miejsca</h2>
+        <p>
+          Jeżyce to dzielnica, która przeszła transformację – z tradycyjnej, miejskiej tkanki w jedno z najbardziej pożądanych miejsc do
+          życia w Poznaniu. Klimat kamienic, zielone podwórza i lokalne biznesy tworzą niepowtarzalny rytm codzienności.
+        </p>
+        <p>To przestrzeń, w której historia spotyka się z nowoczesnością, a życie toczy się pomiędzy kawiarniami, targiem i tramwajami.</p>
+      </div>
+
+      <div>
+        <h2>O mieszkaniu</h2>
+        <p>
+          Dwupokojowe mieszkanie o powierzchni 42 m² zaprojektowane z dbałością o każdy detal. Naturalne światło, jasne drewno, mid-century
+          klimat i ergonomia tworzą przestrzeń gotową do życia od pierwszego dnia.
+        </p>
+        <p>
+          Salon z aneksem kuchennym, sypialnia dająca ciszę, łazienka z elegancką symetrią i loggia z widokiem na zieleń – wszystko spójne,
+          funkcjonalne i ponadczasowe.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Udogodnienia</h2>
+      <div class="features">
+        <div class="feature">42 m² powierzchni</div>
+        <div class="feature">2 pokoje</div>
+        <div class="feature">Loggia ~8 m²</div>
+        <div class="feature">Miejsce postojowe</div>
+        <div class="feature">Komórka lokatorska</div>
+        <div class="feature">Prestiżowy apartamentowiec</div>
+        <div class="feature">Wewnętrzny dziedziniec</div>
+        <div class="feature">Projekt renomowanej pracowni</div>
+      </div>
+    </section>
+
+    <section class="location">
+      <h2>Lokalizacja – Jeżyce</h2>
+      <p>
+        Kilka kroków do Rynku Jeżyckiego. Tramwaj za rogiem. Restauracje, piekarnie, galerie i tereny zielone w zasięgu spaceru.
+        Lokalizacja, która pracuje na wartość nieruchomości i jakość codziennego życia.
+      </p>
+    </section>
+
+    <section id="kontakt" class="contact">
+      <h2>Kontakt</h2>
+      <form>
+        <input type="text" placeholder="Imię i nazwisko" />
+        <input type="email" placeholder="Adres e-mail" />
+        <input type="tel" placeholder="Telefon" />
+        <textarea placeholder="Wiadomość"></textarea>
+        <button class="btn">Wyślij zapytanie</button>
+      </form>
+    </section>
+
+    <footer>Designerskie Mieszkanie Jeżyce • Oferta prywatna</footer>
+  </body>
+</html>

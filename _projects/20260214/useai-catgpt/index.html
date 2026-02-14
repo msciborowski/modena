@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modena by Cordia – Jeżyce</title>
+    <style>
+      /* -------------------- RESET -------------------- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* -------------------- GLOBAL -------------------- */
+      body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: #f9f7f4;
+        color: #2a2a2a;
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+        color: #1c1c1c;
+      }
+
+      a {
+        color: #a06030;
+        text-decoration: none;
+      }
+
+      /* -------------------- HEADER / INTRO -------------------- */
+      header {
+        background: url('<!-- tutaj tło: budynek Modena by Cordia -->') center/cover no-repeat;
+        color: white;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 3rem;
+        letter-spacing: 2px;
+        text-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+      }
+
+      header p {
+        font-size: 1.2rem;
+        margin-top: 20px;
+        max-width: 600px;
+      }
+
+      .button {
+        margin-top: 30px;
+        padding: 12px 28px;
+        background-color: #a06030;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+      .button:hover {
+        background-color: #874d27;
+        cursor: pointer;
+      }
+
+      /* -------------------- SECTIONS -------------------- */
+      section {
+        padding: 80px 10%;
+      }
+
+      section h2 {
+        margin-bottom: 30px;
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      /* -------------------- GALERIA -------------------- */
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 15px;
+      }
+      .gallery img {
+        width: 100%;
+        border-radius: 6px;
+        transition: transform 0.3s ease;
+      }
+      .gallery img:hover {
+        transform: scale(1.03);
+      }
+
+      /* -------------------- HISTORIA -------------------- */
+      .history {
+        background-color: #f1ede7;
+        border-left: 5px solid #a06030;
+        padding: 40px;
+        max-width: 900px;
+        margin: 0 auto;
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      /* -------------------- O MIESZKANIU -------------------- */
+      .details {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .details ul {
+        list-style: none;
+        padding: 0;
+      }
+      .details li {
+        margin-bottom: 12px;
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      /* -------------------- UDOGODNIENIA -------------------- */
+      .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+      }
+      .feature {
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 30px;
+        width: 250px;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+      .feature:hover {
+        transform: translateY(-5px);
+      }
+      .feature h3 {
+        margin-bottom: 10px;
+        color: #a06030;
+      }
+
+      /* -------------------- LOKALIZACJA -------------------- */
+      .location iframe {
+        width: 100%;
+        height: 400px;
+        border: none;
+        border-radius: 6px;
+        margin-top: 30px;
+      }
+
+      /* -------------------- FORMULARZ -------------------- */
+      form {
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      form input,
+      form textarea {
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: 'Montserrat', sans-serif;
+      }
+      form button {
+        background-color: #a06030;
+        color: white;
+        border: none;
+        padding: 14px;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: background 0.3s ease;
+      }
+      form button:hover {
+        background-color: #834d27;
+      }
+
+      /* -------------------- FOOTER -------------------- */
+      footer {
+        background-color: #1c1c1c;
+        color: #ddd;
+        text-align: center;
+        padding: 20px 10%;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Modena by Cordia – Jeżyce</h1>
+      <p>Dwupokojowe mieszkanie w sercu Jeżyc. Światło, design i funkcjonalność w jednym miejscu.</p>
+      <a href="#kontakt" class="button">Skontaktuj się</a>
+    </header>
+
+    <section id="galeria">
+      <h2>Galeria wnętrz i budynku</h2>
+      <div class="gallery">
+        <img src="<!-- zdjęcie 1 -->" alt="" />
+        <img src="<!-- zdjęcie 2 -->" alt="" />
+        <img src="<!-- zdjęcie 3 -->" alt="" />
+        <img src="<!-- zdjęcie 4 -->" alt="" />
+        <img src="<!-- zdjęcie 5 -->" alt="" />
+      </div>
+    </section>
+
+    <section id="historia">
+      <h2>Historia miejsca</h2>
+      <div class="history">
+        <p>
+          Jeżyce – dzielnica z duszą, klimatem, w której tradycja miesza się z nowoczesnością. To przestrzeń, gdzie historia spotyka
+          współczesną energię Poznania. Ulica Jackowskiego to centrum stylowego życia, pełne kawiarni, restauracji i lokalnych galerii.
+          Mieszkanie w inwestycji <strong>Modena by Cordia</strong> wpisuje się w ten rytm – łączy funkcjonalność nowoczesnej architektury z
+          harmonią starego Jeżyckiego klimatu.
+        </p>
+      </div>
+    </section>
+
+    <section id="omieszkaniu">
+      <h2>O mieszkaniu</h2>
+      <div class="details">
+        <ul>
+          <li>➡️ Metraż: 42 m²</li>
+          <li>➡️ 2 pokoje – salon z aneksem, sypialnia, łazienka</li>
+          <li>➡️ Loggia ok. 8 m²</li>
+          <li>➡️ Miejsce postojowe i komórka lokatorska</li>
+          <li>➡️ Projekt wnętrza: <em>Moosh Interiors</em></li>
+          <li>➡️ Styl: Mid-century, naturalne materiały, harmonia i światło</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="udogodnienia">
+      <h2>Udogodnienia</h2>
+      <div class="features">
+        <div class="feature">
+          <h3>🌿 Dziedziniec</h3>
+          <p>Zielona przestrzeń wspólna dla mieszkańców.</p>
+        </div>
+        <div class="feature">
+          <h3>🚗 Parking</h3>
+          <p>Własne miejsce postojowe w hali garażowej.</p>
+        </div>
+        <div class="feature">
+          <h3>🛋 Wykończone</h3>
+          <p>Mieszkanie gotowe do wprowadzenia.</p>
+        </div>
+        <div class="feature">
+          <h3>💡 Design</h3>
+          <p>Mid-century, detal, ergonomia i naturalne światło.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="lokalizacja">
+      <h2>Jeżyce – serce Poznania</h2>
+      <p style="text-align: center">
+        Kultowa lokalizacja z klimatem. Lokal gastronomiczny, Rynek Jeżycki i tramwaj – wszystko w zasięgu kilku kroków.
+      </p>
+      <div class="location">
+        <iframe src="https://www.google.com/maps?q=jackowskiego+poznań&output=embed"></iframe>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <h2>Formularz kontaktowy</h2>
+      <form action="mailto:twojemail@example.com" method="POST" enctype="text/plain">
+        <input type="text" name="name" placeholder="Imię i nazwisko" required />
+        <input type="email" name="email" placeholder="Twój e-mail" required />
+        <textarea name="message" rows="5" placeholder="Napisz wiadomość..." required></textarea>
+        <button type="submit">Wyślij</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>© 2024 Modena by Cordia – Jeżyce | Projekt: Moosh Interiors</p>
+    </footer>
+  </body>
+</html>
