@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# Keep full-resolution originals out of git history.
+src/gallery/_original/

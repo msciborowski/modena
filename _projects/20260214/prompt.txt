@@ -13,6 +13,8 @@ While implementing:
 My coding preferences
 - code must build, and lint must pass
 - no inline styling, prefer styling in component file using @emotion/react
+- prefer smaller components; if some funcionality can be extracted to separate shared component, thats preffered way; prefer one component per file (one component + styles)
+- if working on an UI component make sure it displays correct both on desktop and mobile devices
 - make code clean and if in doubt follow Airbnb ESLint rules
 - use functional components only
 - no default exports
