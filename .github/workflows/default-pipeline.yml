@@ -2,12 +2,13 @@ name: Default pipeline
 
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
   pull_request:
-    branches: [main]
+    branches: [main, dev]
 
 jobs:
   build:
+    # runs-on: ['ubuntu-latest', 'windows-latest']
     runs-on: ubuntu-latest
 
     steps:
@@ -17,6 +18,7 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run build
+      - run: npm run test:once
 
   deploy:
     runs-on: ubuntu-latest
@@ -29,18 +31,40 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Upload files via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Set deployment target path
+        id: deploy_target
+        run: |
+          if [ "${{ github.base_ref || github.ref_name }}" = "main" ]; then
+            echo "target_path=/var/www/jackowskiego24.pl/public_html" >> "$GITHUB_OUTPUT"
+          else
+            echo "target_path=/var/www/jackowskiego24.pl/public_html" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Test ssh connection
+        uses: appleboy/ssh-action@master
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASS }}
-          local-dir: ./dist/
-          server-dir: ./
-          port: 21 # default is 21
-          protocol: ftps # options: ftp, ftps, ftps-legacy
-          dangerous-clean-slate: true # set true to delete all existing files first
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: whoami
+
+      - name: Upload files content via scp
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: ./dist/*
+          target: ${{ steps.deploy_target.outputs.target_path }}
+          rm: true
+
+      - name: Move files from dist to public_html
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd ${{ steps.deploy_target.outputs.target_path }}/dist/
+            mv * ..
+            rm -rf ${{ steps.deploy_target.outputs.target_path }}/dist/
