@@ -11,6 +11,7 @@ declare global {
           addListener: (event: string, handler: () => void) => void
         }
         InfoWindow: new (opts: { content: string }) => {
+          close: () => void
           open: (map: unknown, marker: unknown) => void
         }
         SymbolPath: {
@@ -205,6 +206,7 @@ const createMarkers = (googleMap: unknown) => {
   if (!window.google?.maps) return
 
   const gmaps = window.google.maps
+  let activeInfoWindow: InstanceType<typeof gmaps.InfoWindow> | null = null
 
   places.forEach(place => {
     const marker = new gmaps.Marker({
@@ -233,7 +235,14 @@ const createMarkers = (googleMap: unknown) => {
       content: infoContent,
     })
 
-    const openInfo = () => infoWindow.open(googleMap, marker)
+    const openInfo = () => {
+      if (activeInfoWindow && activeInfoWindow !== infoWindow) {
+        activeInfoWindow.close()
+      }
+
+      infoWindow.open(googleMap, marker)
+      activeInfoWindow = infoWindow
+    }
     marker.addListener('click', openInfo)
 
     if (place.category === 'home') {

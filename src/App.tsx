@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Analytics } from './components/Analytics.tsx'
 import { Contact } from './components/Contact.tsx'
 import { Details } from './components/Details.tsx'
 import { Features } from './components/Features.tsx'
@@ -19,6 +20,11 @@ const App = () => {
       return undefined
     }
 
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      elements.forEach(element => element.classList.add('is-visible'))
+      return undefined
+    }
+
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
@@ -29,7 +35,7 @@ const App = () => {
         })
       },
       {
-        threshold: 0.1,
+        threshold: 0,
         rootMargin: '0px 0px -50px 0px',
       },
     )
@@ -43,16 +49,17 @@ const App = () => {
 
   return (
     <>
+      <Analytics />
       <SkipLink href="#main-content">Przejdź do treści</SkipLink>
       <Header />
       <Main id="main-content">
         <Hero />
-        <Map />
         <Gallery />
         <Story />
         <Details />
         <Features />
         <LocationSection />
+        <Map />
         <Contact />
       </Main>
       <Footer />
