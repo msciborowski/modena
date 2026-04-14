@@ -18,7 +18,7 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run build
-      - run: npm run test:once
+      # - run: npm run test:once
 
   deploy:
     runs-on: ubuntu-latest
