@@ -34,11 +34,7 @@ jobs:
       - name: Set deployment target path
         id: deploy_target
         run: |
-          if [ "${{ github.base_ref || github.ref_name }}" = "main" ]; then
-            echo "target_path=/var/www/jackowskiego24.pl/public_html" >> "$GITHUB_OUTPUT"
-          else
-            echo "target_path=/var/www/jackowskiego24.pl/public_html" >> "$GITHUB_OUTPUT"
-          fi
+          echo "target_path=/var/www/jackowskiego24.pl/public_html" >> "$GITHUB_OUTPUT"
 
       - name: Test ssh connection
         uses: appleboy/ssh-action@master
