@@ -60,7 +60,7 @@ const IntroSubtitle = styled('p')<SubtitleProps>(({ theme, subtitleColor }) => (
 }))
 
 const renderSubtitle = (text: string) =>
-  text.split('<br />').map((part, index, arr) => (
+  text.split(/<br\s*\/?>/i).map((part, index, arr) => (
     <span key={`${part}-${index}`}>
       {part}
       {index < arr.length - 1 && <br />}

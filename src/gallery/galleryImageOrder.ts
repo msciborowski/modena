@@ -13,7 +13,7 @@ export const galleryImageOrder: GalleryImageOrderItem[] = [
   { fileName: '07.jpg', label: 'Modena na Jeżycach' },
   { fileName: '08.jpg', label: 'Sypialnia' },
   { fileName: '09.jpg', label: 'Sypialnia w zbliżeniu' },
-  { fileName: '10.jpg', label: 'Ceska w lustrze' },
+  { fileName: '10.jpg', label: 'Cesca w lustrze' },
   { fileName: '11.jpg', label: 'Verpan Pantop w sypialni' },
   { fileName: '12.jpg', label: 'Trawertynowe uchwyty Hvyt w holu' },
   { fileName: 'img_7749.jpg', label: 'Hol z szafą w zabudowie' },

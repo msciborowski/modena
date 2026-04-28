@@ -65,7 +65,7 @@ const DetailsParagraph = styled('p')({
 
 const Details: FC = () => (
   <DetailsSection id="details" className="fade-in">
-    <SectionIntro title="O Mieszkaniu" subtitle="42 m² przemyślanej przestrzeni dla kogoś, kto nie chce kompromisów" />
+    <SectionIntro title="Więcej o mieszkaniu" subtitle="42 m² przemyślanej przestrzeni dla kogoś, kto nie chce kompromisów" />
     <DetailsGrid>
       {details.map(item => (
         <DetailCard key={item.label}>

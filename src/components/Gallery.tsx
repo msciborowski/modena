@@ -175,7 +175,7 @@ const Gallery: FC = () => {
       <GalleryContainer>
         <SectionIntro
           title="Galeria"
-          subtitle="Przestrzeń, w której designerskie detale spotykają się z funkcjonalnością. Projekt renomowanej pracowni Moosh Interiors."
+          subtitle="Przestrzeń, w której designerskie detale spotykają się z funkcjonalnością.<br />Projekt pracowni Moosh Interiors."
         />
         <GalleryGrid>
           {images.map((image, index) => (
