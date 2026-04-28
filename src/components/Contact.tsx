@@ -5,10 +5,7 @@ import { SectionIntro } from './SectionIntro.tsx'
 
 const CONTACT_ENDPOINT = 'https://vanderson.pl/c.php'
 
-type ContactFieldName = 'name' | 'email' | 'phone' | 'message'
-
 type ContactResponse = {
-  errors?: Partial<Record<ContactFieldName, string>>
   message?: string
   ok?: boolean
 }
@@ -110,17 +107,10 @@ const SubmitButton = styled('button')(({ theme }) => ({
   },
 }))
 
-const ErrorMessage = styled('p')({
-  margin: '0.65rem 0 0',
-  fontSize: '0.9rem',
-  lineHeight: 1.5,
-  color: '#b24837',
-})
-
 const SubmitMessage = styled('p')<{ $variant: 'error' | 'success' }>(({ theme, $variant }) => ({
-  margin: '0 0 1.5rem',
-  padding: '1rem 1.1rem',
-  fontSize: '0.95rem',
+  margin: 0,
+  padding: '1.35rem 1.5rem',
+  fontSize: '1rem',
   lineHeight: 1.6,
   borderLeft: `3px solid ${$variant === 'success' ? theme.palette.secondary.main : '#b24837'}`,
   background: $variant === 'success' ? 'rgba(201, 169, 97, 0.12)' : 'rgba(178, 72, 55, 0.08)',
@@ -129,7 +119,6 @@ const SubmitMessage = styled('p')<{ $variant: 'error' | 'success' }>(({ theme, $
 
 const Contact: FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [fieldErrors, setFieldErrors] = useState<Partial<Record<ContactFieldName, string>>>({})
   const [submitState, setSubmitState] = useState<{ message: string; variant: 'error' | 'success' } | null>(null)
 
   const handleSubmit = useCallback(async (event: FormEvent<HTMLFormElement>) => {
@@ -139,7 +128,6 @@ const Contact: FC = () => {
     const formData = new FormData(form)
 
     setIsSubmitting(true)
-    setFieldErrors({})
     setSubmitState(null)
 
     try {
@@ -151,23 +139,21 @@ const Contact: FC = () => {
       const data = (await response.json().catch(() => null)) as ContactResponse | null
 
       if (!response.ok) {
-        setFieldErrors(data?.errors ?? {})
         setSubmitState({
-          message: data?.message ?? 'Nie udało się wysłać wiadomości. Spróbuj ponownie za chwilę.',
+          message: data?.message ?? 'Wystąpił błąd w trakcie wysyłania wiadomości',
           variant: 'error',
         })
         return
       }
 
       form.reset()
-      setFieldErrors({})
       setSubmitState({
-        message: data?.message ?? 'Dziękujemy. Wiadomość została wysłana.',
+        message: data?.message ?? 'Wiadomość została wysłana',
         variant: 'success',
       })
     } catch {
       setSubmitState({
-        message: 'Nie udało się połączyć z formularzem. Spróbuj ponownie za chwilę.',
+        message: 'Wystąpił błąd w trakcie wysyłania wiadomości',
         variant: 'error',
       })
     } finally {
@@ -179,70 +165,39 @@ const Contact: FC = () => {
     <ContactSection id="contact" className="fade-in">
       <SectionIntro title="Kontakt" subtitle="Umów wizytę i przekonaj się osobiście" />
       <FormContainer>
-        <form onSubmit={handleSubmit} aria-label="Formularz kontaktowy">
-          {submitState ? (
+        {submitState ? (
+          <div aria-live="polite">
             <SubmitMessage role="status" aria-live="polite" $variant={submitState.variant}>
               {submitState.message}
             </SubmitMessage>
-          ) : null}
-          <HoneypotGroup aria-hidden="true">
-            <Label htmlFor="website">Strona internetowa</Label>
-            <Input id="website" name="website" type="text" autoComplete="off" tabIndex={-1} />
-          </HoneypotGroup>
-          <FormGroup>
-            <Label htmlFor="name">Imię i nazwisko</Label>
-            <Input
-              id="name"
-              name="name"
-              type="text"
-              required
-              autoComplete="name"
-              aria-invalid={fieldErrors.name ? 'true' : 'false'}
-              aria-describedby={fieldErrors.name ? 'name-error' : undefined}
-            />
-            {fieldErrors.name ? <ErrorMessage id="name-error">{fieldErrors.name}</ErrorMessage> : null}
-          </FormGroup>
-          <FormGroup>
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              name="email"
-              type="email"
-              required
-              autoComplete="email"
-              aria-invalid={fieldErrors.email ? 'true' : 'false'}
-              aria-describedby={fieldErrors.email ? 'email-error' : undefined}
-            />
-            {fieldErrors.email ? <ErrorMessage id="email-error">{fieldErrors.email}</ErrorMessage> : null}
-          </FormGroup>
-          <FormGroup>
-            <Label htmlFor="phone">Telefon</Label>
-            <Input
-              id="phone"
-              name="phone"
-              type="tel"
-              required
-              autoComplete="tel"
-              aria-invalid={fieldErrors.phone ? 'true' : 'false'}
-              aria-describedby={fieldErrors.phone ? 'phone-error' : undefined}
-            />
-            {fieldErrors.phone ? <ErrorMessage id="phone-error">{fieldErrors.phone}</ErrorMessage> : null}
-          </FormGroup>
-          <FormGroup>
-            <Label htmlFor="message">Wiadomość</Label>
-            <TextArea
-              id="message"
-              name="message"
-              placeholder="Jestem zainteresowany/a wizytą w mieszkaniu..."
-              aria-invalid={fieldErrors.message ? 'true' : 'false'}
-              aria-describedby={fieldErrors.message ? 'message-error' : undefined}
-            />
-            {fieldErrors.message ? <ErrorMessage id="message-error">{fieldErrors.message}</ErrorMessage> : null}
-          </FormGroup>
-          <SubmitButton type="submit" disabled={isSubmitting}>
-            {isSubmitting ? 'Wysyłanie...' : 'Wyślij Zapytanie'}
-          </SubmitButton>
-        </form>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} aria-label="Formularz kontaktowy">
+            <HoneypotGroup aria-hidden="true">
+              <Label htmlFor="website">Strona internetowa</Label>
+              <Input id="website" name="website" type="text" autoComplete="off" tabIndex={-1} />
+            </HoneypotGroup>
+            <FormGroup>
+              <Label htmlFor="name">Imię i nazwisko</Label>
+              <Input id="name" name="name" type="text" required autoComplete="name" />
+            </FormGroup>
+            <FormGroup>
+              <Label htmlFor="email">Email</Label>
+              <Input id="email" name="email" type="email" required autoComplete="email" />
+            </FormGroup>
+            <FormGroup>
+              <Label htmlFor="phone">Telefon</Label>
+              <Input id="phone" name="phone" type="tel" required autoComplete="tel" />
+            </FormGroup>
+            <FormGroup>
+              <Label htmlFor="message">Wiadomość</Label>
+              <TextArea id="message" name="message" placeholder="Jestem zainteresowany/a wizytą w mieszkaniu..." />
+            </FormGroup>
+            <SubmitButton type="submit" disabled={isSubmitting}>
+              {isSubmitting ? 'Wysyłanie...' : 'Wyślij Zapytanie'}
+            </SubmitButton>
+          </form>
+        )}
       </FormContainer>
     </ContactSection>
   )
