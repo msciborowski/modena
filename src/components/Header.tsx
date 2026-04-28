@@ -28,6 +28,7 @@ const Nav = styled('nav')({
   margin: '0 auto',
   padding: '0 3rem',
   display: 'flex',
+  cursor: 'pointer',
   justifyContent: 'space-between',
   alignItems: 'center',
   position: 'relative',
@@ -125,7 +126,7 @@ const Header: FC = () => {
   return (
     <HeaderRoot>
       <Nav aria-label="Główna nawigacja">
-        <Logo>
+        <Logo onClick={() => (window.location.href = '/')}>
           <img src="modena-logo.svg" alt="Modena logo" />
         </Logo>
         <NavList>

@@ -14,11 +14,11 @@ This folder contains a standalone `contact.php` endpoint you can upload to a PHP
 
 ## Before deploying
 
-Update the constants at the top of [contact.php](/Users/ms/Web/modena-app/deployment/php-contact/contact.php):
+Update the constants at the top of [c.php](/Users/ms/Web/modena-app/deployment/php-contact/c.php):
 
 - `ALLOWED_ORIGINS`
 - `ALLOW_EMPTY_ORIGIN`
-- `CONTACT_RECIPIENT`
+- `CONTACT_RECIPIENTS`
 - `CONTACT_FROM_EMAIL`
 - `CONTACT_FROM_NAME`
 - `CONTACT_SUBJECT`

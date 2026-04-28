@@ -12,20 +12,21 @@ declare(strict_types=1);
 */
 
 const ALLOWED_ORIGINS = [
-    'https://example.com',
+    'https://jackowskiego24.pl',
 ];
 
 const ALLOW_EMPTY_ORIGIN = false;
-const CONTACT_RECIPIENT = 'sales@example.com';
-const CONTACT_FROM_EMAIL = 'noreply@example.com';
+const CONTACT_RECIPIENTS = [
+    'marcin@sciborowski.pl',
+];
+const CONTACT_FROM_EMAIL = 'noreply@jackowskiego24.pl';
 const CONTACT_FROM_NAME = 'Modena Contact Form';
 const CONTACT_SUBJECT = 'Nowe zapytanie z formularza Modena';
-
-const SMTP_HOST = 'smtp.example.com';
+const SMTP_HOST = 'serwer2308310.home.pl';
 const SMTP_PORT = 587;
 const SMTP_ENCRYPTION = 'tls'; // allowed: 'tls', 'ssl', 'none'
-const SMTP_USERNAME = 'smtp-user@example.com';
-const SMTP_PASSWORD = 'replace-with-your-password';
+const SMTP_USERNAME = 'automat@codesign.pl';
+const SMTP_PASSWORD = 'ruYra2PSCdK275SL';
 const SMTP_TIMEOUT_SECONDS = 15;
 
 const RATE_LIMIT_WINDOW_SECONDS = 900;
@@ -105,7 +106,7 @@ try {
         'timeout' => SMTP_TIMEOUT_SECONDS,
         'fromEmail' => CONTACT_FROM_EMAIL,
         'fromName' => CONTACT_FROM_NAME,
-        'toEmail' => CONTACT_RECIPIENT,
+        'toEmails' => CONTACT_RECIPIENTS,
         'subject' => CONTACT_SUBJECT,
         'replyToEmail' => $replyToEmail,
         'replyToName' => $replyToName,
@@ -289,6 +290,12 @@ function encodeHeader(string $value): string
 
 function smtpSendMail(array $config): void
 {
+    $recipients = $config['toEmails'] ?? [];
+
+    if (!is_array($recipients) || $recipients === []) {
+        throw new RuntimeException('No recipients configured.');
+    }
+
     $socket = smtpConnect(
         (string) $config['host'],
         (int) $config['port'],
@@ -317,12 +324,20 @@ function smtpSendMail(array $config): void
         }
 
         $fromEmail = sanitizeHeaderValue((string) $config['fromEmail']);
-        $toEmail = sanitizeHeaderValue((string) $config['toEmail']);
 
-        smtpWriteCommand($socket, 'MAIL FROM:<' . $fromEmail . '>', [250]);
-        smtpWriteCommand($socket, 'RCPT TO:<' . $toEmail . '>', [250, 251]);
-        smtpWriteCommand($socket, 'DATA', [354]);
-        smtpWriteData($socket, buildMimeMessage($config), [250]);
+        foreach ($recipients as $recipient) {
+            $toEmail = sanitizeHeaderValue(is_scalar($recipient) ? (string) $recipient : '');
+
+            if ($toEmail === '') {
+                continue;
+            }
+
+            smtpWriteCommand($socket, 'MAIL FROM:<' . $fromEmail . '>', [250]);
+            smtpWriteCommand($socket, 'RCPT TO:<' . $toEmail . '>', [250, 251]);
+            smtpWriteCommand($socket, 'DATA', [354]);
+            smtpWriteData($socket, buildMimeMessage($config, $toEmail), [250]);
+        }
+
         smtpWriteCommand($socket, 'QUIT', [221]);
     } finally {
         fclose($socket);
@@ -394,14 +409,13 @@ function smtpReadResponse($socket, array $expectedCodes): string
     return $response;
 }
 
-function buildMimeMessage(array $config): string
+function buildMimeMessage(array $config, string $toEmail): string
 {
     $subject = encodeHeader((string) $config['subject']);
     $fromName = encodeHeader(sanitizeHeaderValue((string) $config['fromName']));
     $fromEmail = sanitizeHeaderValue((string) $config['fromEmail']);
     $replyToName = encodeHeader(sanitizeHeaderValue((string) $config['replyToName']));
     $replyToEmail = sanitizeHeaderValue((string) $config['replyToEmail']);
-    $toEmail = sanitizeHeaderValue((string) $config['toEmail']);
     $body = dotStuffBody((string) $config['body']);
 
     $headers = [
