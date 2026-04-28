@@ -34,18 +34,40 @@ const Content = styled('div')({
   position: 'relative',
 })
 
+const Figure = styled('figure')({
+  margin: 0,
+  display: 'grid',
+  justifyItems: 'center',
+  gap: '1rem',
+  maxWidth: '100%',
+})
+
 const Image = styled('img')({
   maxWidth: 'calc(100vw - 7rem)',
-  maxHeight: 'calc(100vh - 7rem)',
+  maxHeight: 'calc(100vh - 11rem)',
   width: 'auto',
   height: 'auto',
   objectFit: 'contain',
   display: 'block',
   '@media (max-width: 768px)': {
     maxWidth: 'calc(100vw - 2.5rem)',
-    maxHeight: 'calc(100vh - 7rem)',
+    maxHeight: 'calc(100vh - 10rem)',
   },
 })
+
+const Caption = styled('figcaption')(({ theme }) => ({
+  maxWidth: 'min(100%, 42rem)',
+  color: theme.palette.background.default,
+  fontSize: '0.95rem',
+  lineHeight: 1.5,
+  textAlign: 'center',
+  padding: '0 1rem',
+  textWrap: 'balance',
+  '@media (max-width: 768px)': {
+    fontSize: '0.9rem',
+    padding: '0 0.5rem',
+  },
+}))
 
 const Button = styled('button')(({ theme }) => ({
   border: 'none',
@@ -156,12 +178,10 @@ const GalleryLightbox: FC<GalleryLightboxProps> = ({ activeIndex, images, onClos
         ›
       </NextButton>
       <Content>
-        <Image
-          src={activeImage.src}
-          alt={activeImage.alt}
-          onClick={event => event.stopPropagation()}
-          loading="eager"
-        />
+        <Figure onClick={event => event.stopPropagation()}>
+          <Image src={activeImage.src} alt={activeImage.alt} loading="eager" />
+          <Caption>{activeImage.alt}</Caption>
+        </Figure>
       </Content>
     </Overlay>,
     document.body,
