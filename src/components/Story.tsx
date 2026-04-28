@@ -6,7 +6,7 @@ const storyParagraphs = [
   'Jeżyce to dzielnica, która przeszła wyjątkową transformację. Z przemysłowego zakątka miasta stała się najbardziej klimatycznym miejscem w Poznaniu. Historyczna zabudowa splata się tu z nowoczesną architekturą, a lokalne kawiarnie z prestiżowymi restauracjami.',
   'Rynek Jeżycki to tętniące życiem centrum dzielnicy. Tu każda sobota to święto lokalności – farmerskie produkty, designerskie bazary, spotkania sąsiedzkie. To miejsce, które buduje społeczność i nadaje ton całej okolicy.',
   'Modena przez dekady była synonimem elegancji. To tutaj działały Poznańskie Zakłady Przemysłu Odzieżowego Modena – jeden z największych producentów odzieży w Polsce w czasach PRL. Garnitury, garsonki i płaszcze tej marki słynęły z dobrego kroju i jakości. Dziś nazwa powraca w zupełnie nowym kontekście i przywraca temu fragmentowi Jeżyc miejski rytm.',
-  'Prestiżowa inwestycja w sercu Jeżyc, z własnym dziedzińcem, który stanowi kameralną oazę spokoju mimo miejskiego tętna za bramą.',
+  'Prestiżowa inwestycja w sercu Jeżyc, z własnym dziedzińcem, który stanowi kameralną oazę spokoju.',
 ]
 
 const StorySection = styled('section')(({ theme }) => ({
@@ -61,7 +61,7 @@ const Story: FC = () => (
   <StorySection id="story" className="fade-in">
     <SectionIntro
       title="Historia Miejsca"
-      subtitle="Jeżyce to dziś jeden z najbardziej pożądanych adresów w Poznaniu. <br/>Czasem wystarczy jeden kolor, aby przywołać historię mijesca."
+      subtitle="Jeżyce to dziś jeden z najbardziej pożądanych adresów w Poznaniu.<br />Czasem wystarczy jeden kolor, aby przywołać historię mijesca."
       titleColor="#f5f1eb"
       subtitleColor="rgba(245, 241, 235, 0.9)"
       lineColor="#c9a961"
@@ -74,7 +74,7 @@ const Story: FC = () => (
         ))}
       </div>
       <StoryImageWrapper>
-        <StoryImage src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600" alt="Jeżyce Poznań" loading="lazy" />
+        {/* <StoryImage src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600" alt="Jeżyce Poznań" loading="lazy" /> */}
       </StoryImageWrapper>
     </StoryGrid>
   </StorySection>

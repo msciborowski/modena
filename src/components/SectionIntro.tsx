@@ -59,12 +59,21 @@ const IntroSubtitle = styled('p')<SubtitleProps>(({ theme, subtitleColor }) => (
   color: subtitleColor ?? theme.palette.text.secondary,
 }))
 
+const renderSubtitle = (text: string) =>
+  text.split('<br />').map((part, index, arr) => (
+    // eslint-disable-next-line react/no-array-index-key
+    <span key={index}>
+      {part}
+      {index < arr.length - 1 && <br />}
+    </span>
+  ))
+
 const SectionIntro: FC<SectionIntroProps> = ({ title, subtitle, align = 'center', titleColor, subtitleColor, lineColor }) => (
   <IntroWrapper align={align}>
     <IntroTitle titleColor={titleColor} lineColor={lineColor}>
       {title}
     </IntroTitle>
-    <IntroSubtitle subtitleColor={subtitleColor}>{subtitle}</IntroSubtitle>
+    <IntroSubtitle subtitleColor={subtitleColor}>{renderSubtitle(subtitle)}</IntroSubtitle>
   </IntroWrapper>
 )
 
