@@ -74,7 +74,7 @@ const Story: FC = () => (
         ))}
       </div>
       <StoryImageWrapper>
-        {/* <StoryImage src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600" alt="Jeżyce Poznań" loading="lazy" /> */}
+        <StoryImage src="/images/modena-jackowskiego-24-jezyce-poznan.png" alt="Modena Jackowskiego 24 - Jeżyce Poznań" loading="lazy" />
       </StoryImageWrapper>
     </StoryGrid>
   </StorySection>
