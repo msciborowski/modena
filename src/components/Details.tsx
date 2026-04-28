@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { SectionIntro } from './SectionIntro.tsx'
 
 const details = [
-  { label: 'Metraż', value: '42 m²' },
+  { label: 'Powierzchnia', value: '42 m²' },
   { label: 'Pokoje', value: '2 pokoje' },
   { label: 'Loggia', value: '8 m²' },
   { label: 'Lokalizacja', value: 'ul. Jackowskiego' },
@@ -77,21 +77,36 @@ const Details: FC = () => (
     <DetailsBody>
       <DetailsHeading>Przestrzeń Życia</DetailsHeading>
       <DetailsParagraph>
-        <strong>Salon z kuchnią</strong> – Lekkie, otwarte regały, komoda vintage i gramofon dodają charakteru i klimatu mid-century. Jasny
-        dąb przełamany ciepłym fornirem niczym z lat 70. To mieszkanie dla miłośników designu i kolekcjonerów dobrych momentów.
+        <strong>Salon</strong> <br />
+        Duże przeszklenia wpuszczają do wnętrza naturalne światło, które odbija się od jasnej dębowej podłogi i neutralnych ścian. W centrum
+        stoi sofa obita szaro-beżową tkaniną boucle. Jej miękka faktura subtelnie przywołuje skojarzenia z tkaninami – ukłon w stronę
+        odzieżowej historii miejsca. Obok ustawiono odrestaurowany fotel zaprojektowany przez Henryka Lisa typ 300-190, potocznie nazywany
+        „Liskiem”. Pepitka na tkaninie to wzór znany z klasycznej garderoby, która pojawia się tu jak dyskretny cytat z przeszłości. Lekki
+        regał ścienny w kolorze jasnego dębu nadaje wnętrzu strukturę, ale nie przytłacza przestrzeni.
       </DetailsParagraph>
       <DetailsParagraph>
-        W mieszkaniu połączone zostały jasne kolory z delikatnymi akcentami kolorystycznymi. Na części wysokiej zabudowy znajdują się
-        uchwyty z naturalnego czerwonego trawertynu. Z kolei niska zabudowa w dębowym dekorze otwierana jest za pomocą złotej listwy
-        korytkowej.
+        <strong>Kuchnia z jadalnią</strong> <br />
+        Kuchnia, mimo niewielkiego metrażu i wymagającego układu z dwoma narożnikami, została zaprojektowana bardzo ergonomicznie. Dolne
+        szafki wykończono dębowym dekorem, który ociepla wnętrze, natomiast górne pozostawiono w bieli, aby zachować wizualną lekkość
+        zabudowy. Całość uzupełnia wysoka zabudowa w odcieniu piaskowego beżu. Detalem przyciągającym uwagę są gałki z czerwonego
+        trawertynu, które wprowadzają subtelny akcent kolorystyczny. Tuż obok znajduje się jadalnia. Oryginalny okrągły stół z przełomu lat
+        60/70 z ciemnego drewna kontrastuje z jasną zabudową kuchenną. Wśród krzeseł pojawia się odrestaurowany model Thonet 788
+        wyprodukowany w Radomsku. Nad stołem zawieszono modernistyczną lampę, która rozprasza miękkie światło i podkreśla kameralny
+        charakter tej części mieszkania.
       </DetailsParagraph>
       <DetailsParagraph>
-        <strong>Łazienka</strong> – Przestrzeń, w której detale tworzą spójną opowieść o harmonii i funkcjonalności. Połączenie
-        trawertynowych uchwytów z chromowaną armaturą, a ozdobny grzejnik w osi wanny nadaje wnętrzu eleganckiej symetrii.
+        <strong>Łazienka</strong> <br />
+        Łazienka utrzymana jest w jasnej palecie beżów i piaskowych tonów. Centralnym elementem kompozycji jest błękitna szafka umywalkowa,
+        inspirowana kolorem archiwalnego płaszcza z fotografii Modeny. Nad nią zawisło lustro w burgundowej, łukowej ramie. Całość uzupełnia
+        ręcznie wykonany porcelanowy różowy kinkiet zaprojektowany i wykonany przez Nodi Studio, o delikatnym świetle, który buduje
+        kameralny nastrój. Strefę kąpielową z wanną wykończono gresem barwionym w masie. Skośnie pomalowany sufit subtelnie dzieli
+        przestrzeń na strefy funkcjonalne, a na podłodze gorseciki z niebieskim akcentem z kolekcji Mai Ganszyniec dla marki Paradyż.
       </DetailsParagraph>
       <DetailsParagraph>
-        <strong>Sypialnia</strong> – Daje ciszę mimo że na dole tętni miasto. Przestrzeń, która pozwala na prawdziwy odpoczynek i
-        regenerację.
+        <strong>Sypialnia</strong> <br />
+        Naturalne materiały, jasne drewno i miękkie światło budują atmosferę sprzyjającą odpoczynkowi. Mimo niewielkiego metrażu przestrzeń
+        zaprojektowano z dużą dbałością o detal. Obok łóżka ustawiono niewielkie dębowe biurko, które może pełnić funkcję miejsca do pracy
+        zdalnej lub toaletki.
       </DetailsParagraph>
     </DetailsBody>
   </DetailsSection>
