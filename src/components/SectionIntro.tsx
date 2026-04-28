@@ -61,8 +61,7 @@ const IntroSubtitle = styled('p')<SubtitleProps>(({ theme, subtitleColor }) => (
 
 const renderSubtitle = (text: string) =>
   text.split('<br />').map((part, index, arr) => (
-    // eslint-disable-next-line react/no-array-index-key
-    <span key={index}>
+    <span key={`${part}-${index}`}>
       {part}
       {index < arr.length - 1 && <br />}
     </span>
