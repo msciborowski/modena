@@ -3,8 +3,16 @@ import styled from '@emotion/styled'
 import { SectionIntro } from './SectionIntro.tsx'
 
 const features = [
-  { icon: '✨', title: 'Gotowe do wejścia', desc: 'Bez czekania, bez remontów, bez improwizacji' },
-  { icon: '🎨', title: 'Designerskie wnętrza', desc: 'Każdy detal przemyślany, klasyki designu' },
+  {
+    icon: '✨',
+    title: 'Gotowe do wprowadzenia',
+    desc: 'Mieszkanie jest w pełni wykończone, nie musisz czekać miesiącami na ekipy, unikasz rosnących kosztów materiałów i robocizny, mozesz wprowadzić się od razu lub rozpocząć wynajem.',
+  },
+  {
+    icon: '🎨',
+    title: 'Projekt od profesjonalnej pracowni projektowej',
+    desc: 'Wnętrza zostały zaprojektowane przez architektów Moosh Interiors. Spójny, przemyslany styl. Maksymalne wykorzystanie przestrzeni. Każdy detal przemyślany.',
+  },
   {
     icon: '📍',
     title: 'Topowa lokalizacja',
