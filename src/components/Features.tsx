@@ -3,12 +3,12 @@ import styled from '@emotion/styled'
 import { SectionIntro } from './SectionIntro.tsx'
 
 const features = [
-  { icon: '🚗', title: 'Miejsce Postojowe', desc: 'Własne miejsce parkingowe w podziemnym garażu' },
-  { icon: '📦', title: 'Komórka Lokatorska', desc: 'Dodatkowa przestrzeń magazynowa' },
-  { icon: '🌳', title: 'Prywatny Dziedziniec', desc: 'Pięknie zagospodarowany dziedziniec tylko dla mieszkańców' },
-  { icon: '🏢', title: 'Prestiżowa Inwestycja', desc: 'Modena by Cordia – gwarancja jakości i standardu' },
-  { icon: '✨', title: 'Gotowe do Wejścia', desc: 'Bez czekania, bez remontów, bez improwizacji' },
-  { icon: '🎨', title: 'Designerskie Wnętrza', desc: 'Projekt Moosh Interiors – każdy detal przemyślany' },
+  { icon: '✨', title: 'Gotowe do wejścia', desc: 'Bez czekania, bez remontów, bez improwizacji' },
+  { icon: '🎨', title: 'Designerskie wnętrza', desc: 'Projekt Moosh Interiors – każdy detal przemyślany' },
+  { icon: '🏢', title: 'Prestiżowa inwestycja', desc: 'Modena by Cordia – gwarancja jakości i standardu' },
+  { icon: '🌳', title: 'Prywatny dziedziniec', desc: 'Pięknie zagospodarowany dziedziniec tylko dla mieszkańców' },
+  { icon: '🚗', title: 'Miejsce postojowe', desc: 'Własne miejsce parkingowe w podziemnym garażu' },
+  { icon: '📦', title: 'Komórka lokatorska', desc: 'Dodatkowa przestrzeń magazynowa' },
 ]
 
 const FeaturesSection = styled('section')(({ theme }) => ({
