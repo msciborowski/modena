@@ -55,7 +55,6 @@ const App = () => {
       <Header />
       <Main id="main-content">
         <Hero />
-        <PhoneContactSection />
         <Gallery />
         <Story />
         <Details />
@@ -63,6 +62,7 @@ const App = () => {
         <LocationSection />
         <Map />
         <Contact />
+        <PhoneContactSection />
       </Main>
       <Footer />
     </>

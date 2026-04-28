@@ -6,12 +6,12 @@ const features = [
   {
     icon: '✨',
     title: 'Gotowe do wprowadzenia',
-    desc: 'Mieszkanie jest w pełni wykończone, nie musisz czekać miesiącami na ekipy, unikasz rosnących kosztów materiałów i robocizny, mozesz wprowadzić się od razu lub rozpocząć wynajem.',
+    desc: 'Mieszkanie jest w pełni wykończone, nie musisz czekać miesiącami na ekipy, unikasz rosnących kosztów materiałów i robocizny, możesz wprowadzić się od razu lub rozpocząć wynajem.',
   },
   {
     icon: '🎨',
-    title: 'Projekt od profesjonalnej pracowni projektowej',
-    desc: 'Wnętrza zostały zaprojektowane przez architektów Moosh Interiors. Spójny, przemyslany styl. Maksymalne wykorzystanie przestrzeni. Każdy detal przemyślany.',
+    title: 'Wnętrza zaprojektowane przez architektów',
+    desc: 'Wnętrza zostały zaprojektowane przez pracownię Moosh Interiors. Spójny styl. Maksymalne wykorzystanie przestrzeni. Każdy detal przemyślany.',
   },
   {
     icon: '📍',
@@ -21,7 +21,7 @@ const features = [
   {
     icon: '🏙️',
     title: 'Klimatyczna "modna" dzielnica',
-    desc: 'Jeżyce to miejsce z charakterem, łączą historię z nowoczesnością. Znajdziesz tu: restauracje, kawiarnie, kino, teatr, życie kulturalne, społecznośc kreatywną. To jedna z najbardziej "żyjących" dzielnic w Poznaniu.',
+    desc: 'Jeżyce to miejsce z charakterem, łączą historię z nowoczesnością. Znajdziesz tu: restauracje, kawiarnie, kino, teatr, życie kulturalne, społeczność kreatywną. To jedna z najbardziej "żyjących" dzielnic w Poznaniu.',
   },
   {
     icon: '🏢',
@@ -31,14 +31,18 @@ const features = [
   {
     icon: '🌳',
     title: 'Dużo zieleni i przestrzeni wspólnych',
-    desc: 'Inwestycja oferuje zrewitalizowaną aleję ponad 100-letnich platanów, prywatny dziedziniec, plac zabaw i przestrzenie rekreacyjne. Żadkie połączenie: centrum miasta + realna zieleń.',
+    desc: 'Zrewitalizowana aleja ponad 100-letnich platanów, prywatny dziedziniec, plac zabaw i przestrzenie rekreacyjne. Rzadkie połączenie: centrum miasta + realna zieleń.',
   },
   {
     icon: '🚗',
     title: 'Miejsce postojowe',
-    desc: 'Własne miejsce parkingowe w podziemnym garażu z możliwością podłączenia elektrycznej ładowarki',
+    desc: 'Własne miejsce parkingowe w podziemnym garażu (poziom -1) z możliwością podłączenia elektrycznej ładowarki.',
   },
-  { icon: '📦', title: 'Komórka lokatorska', desc: 'Dodatkowa przestrzeń do przechowywania' },
+  {
+    icon: '📦',
+    title: 'Komórka lokatorska',
+    desc: 'Dodatkowa przestrzeń do przechowywania. Doskonała na rowery, opony i inne rzadko używane przedmioty.',
+  },
 ]
 
 const FeaturesSection = styled('section')(({ theme }) => ({

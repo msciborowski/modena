@@ -1,8 +1,8 @@
 import type { FC } from 'react'
 import styled from '@emotion/styled'
 
-const PHONE_NUMBER = '+48 600 700 800'
-const PHONE_NUMBER_LINK = 'tel:+48600700800'
+const PHONE_NUMBER = '+48 536 024 267'
+const PHONE_NUMBER_LINK = 'tel:+48536024267'
 
 const PhoneSection = styled('section')(({ theme }) => ({
   background: theme.palette.background.default,
@@ -121,7 +121,8 @@ const PhoneContactSection: FC = () => (
         <Eyebrow>Szybki Kontakt</Eyebrow>
         <Heading id="phone-contact-title">Zadzwoń i umów prezentację mieszkania</Heading>
         <Description>
-          Jeśli chcesz od razu porozmawiać o mieszkaniu, terminie prezentacji albo szczegółach oferty, najszybciej skontaktujesz się telefonicznie.
+          Jeśli chcesz od razu porozmawiać o mieszkaniu, terminie prezentacji albo szczegółach oferty, najszybciej skontaktujesz się
+          telefonicznie.
         </Description>
       </PhoneContent>
       <PhoneDetails>
