@@ -10,6 +10,7 @@ import { Hero } from './components/Hero.tsx'
 import { LocationSection } from './components/LocationSection.tsx'
 import { Main } from './components/Main.tsx'
 import { Map } from './components/Map.tsx'
+import { PhoneContactSection } from './components/PhoneContactSection.tsx'
 import { SkipLink } from './components/SkipLink.tsx'
 import { Story } from './components/Story.tsx'
 
@@ -54,6 +55,7 @@ const App = () => {
       <Header />
       <Main id="main-content">
         <Hero />
+        <PhoneContactSection />
         <Gallery />
         <Story />
         <Details />

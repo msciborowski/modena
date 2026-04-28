@@ -61,7 +61,7 @@ const Story: FC = () => (
   <StorySection id="story" className="fade-in">
     <SectionIntro
       title="Historia Miejsca"
-      subtitle="Jeżyce to dziś jeden z najbardziej pożądanych adresów w Poznaniu.<br />Czasem wystarczy jeden kolor, aby przywołać historię mijesca."
+      subtitle="Jeżyce to dziś jeden z najbardziej pożądanych adresów w Poznaniu."
       titleColor="#f5f1eb"
       subtitleColor="rgba(245, 241, 235, 0.9)"
       lineColor="#c9a961"

@@ -4,11 +4,33 @@ import { SectionIntro } from './SectionIntro.tsx'
 
 const features = [
   { icon: '✨', title: 'Gotowe do wejścia', desc: 'Bez czekania, bez remontów, bez improwizacji' },
-  { icon: '🎨', title: 'Designerskie wnętrza', desc: 'Projekt Moosh Interiors – każdy detal przemyślany' },
-  { icon: '🏢', title: 'Prestiżowa inwestycja', desc: 'Modena by Cordia – gwarancja jakości i standardu' },
-  { icon: '🌳', title: 'Prywatny dziedziniec', desc: 'Pięknie zagospodarowany dziedziniec tylko dla mieszkańców' },
-  { icon: '🚗', title: 'Miejsce postojowe', desc: 'Własne miejsce parkingowe w podziemnym garażu' },
-  { icon: '📦', title: 'Komórka lokatorska', desc: 'Dodatkowa przestrzeń magazynowa' },
+  { icon: '🎨', title: 'Designerskie wnętrza', desc: 'Każdy detal przemyślany, klasyki designu' },
+  {
+    icon: '📍',
+    title: 'Topowa lokalizacja',
+    desc: 'Świetna lokalizacja, blisko centrum (około 9 minut, szybki dostęp do komunikacji), blisko uczelnii i biznesu. Wygodne życie, bez konieczności codziennych dojazdów.',
+  },
+  {
+    icon: '🏙️',
+    title: 'Klimatyczna "modna" dzielnica',
+    desc: 'Jeżyce to miejsce z charakterem, łączą historię z nowoczesnością. Znajdziesz tu: restauracje, kawiarnie, kino, teatr, życie kulturalne, społecznośc kreatywną. To jedna z najbardziej "żyjących" dzielnic w Poznaniu.',
+  },
+  {
+    icon: '🏢',
+    title: 'Prestiżowa inwestycja',
+    desc: 'Eleganckie części wspólne, inspirowane kamienicami, monitoring i ochrona. Komfort i bezpieczeństwo na poziomie nowoczesnego apartamentowca.',
+  },
+  {
+    icon: '🌳',
+    title: 'Dużo zieleni i przestrzeni wspólnych',
+    desc: 'Inwestycja oferuje zrewitalizowaną aleję ponad 100-letnich platanów, prywatny dziedziniec, plac zabaw i przestrzenie rekreacyjne. Żadkie połączenie: centrum miasta + realna zieleń.',
+  },
+  {
+    icon: '🚗',
+    title: 'Miejsce postojowe',
+    desc: 'Własne miejsce parkingowe w podziemnym garażu z możliwością podłączenia elektrycznej ładowarki',
+  },
+  { icon: '📦', title: 'Komórka lokatorska', desc: 'Dodatkowa przestrzeń do przechowywania' },
 ]
 
 const FeaturesSection = styled('section')(({ theme }) => ({
