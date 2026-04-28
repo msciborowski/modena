@@ -1,6 +1,7 @@
 import type { FC, KeyboardEvent as ReactKeyboardEvent } from 'react'
 import { useMemo, useState } from 'react'
 import styled from '@emotion/styled'
+import { galleryImageOrder } from '../gallery/galleryImageOrder.ts'
 import { GalleryLightbox } from './GalleryLightbox.tsx'
 import { SectionIntro } from './SectionIntro.tsx'
 
@@ -15,21 +16,15 @@ type LightboxImage = {
   src: string
 }
 
-const tileModules = import.meta.glob<string>(
-  '../gallery/tiles/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}',
-  {
-    eager: true,
-    import: 'default',
-  },
-)
+const tileModules = import.meta.glob<string>('../gallery/tiles/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}', {
+  eager: true,
+  import: 'default',
+})
 
-const lightboxModules = import.meta.glob<string>(
-  '../gallery/lightbox/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}',
-  {
-    eager: true,
-    import: 'default',
-  },
-)
+const lightboxModules = import.meta.glob<string>('../gallery/lightbox/*.{jpg,jpeg,png,webp,avif,JPG,JPEG,PNG,WEBP,AVIF}', {
+  eager: true,
+  import: 'default',
+})
 
 const getFilename = (path: string) => path.split('/').at(-1) ?? ''
 
@@ -39,23 +34,35 @@ const toAltText = (filename: string) => {
   return normalized.charAt(0).toUpperCase() + normalized.slice(1)
 }
 
+const getAltText = (label: string, filename: string) => label.trim() || toAltText(filename)
+
+const tileByFilename = Object.entries(tileModules).reduce<Record<string, string>>((acc, [path, src]) => {
+  acc[getFilename(path)] = src
+  return acc
+}, {})
+
 const lightboxByFilename = Object.entries(lightboxModules).reduce<Record<string, string>>((acc, [path, src]) => {
   acc[getFilename(path)] = src
   return acc
 }, {})
 
-const images: GalleryImage[] = Object.entries(tileModules)
-  .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }))
-  .map(([path, tileSrc]) => {
-    const filename = getFilename(path)
-    const lightboxSrc = lightboxByFilename[filename] ?? tileSrc
+const images: GalleryImage[] = galleryImageOrder.flatMap(({ fileName, label }) => {
+  const tileSrc = tileByFilename[fileName]
 
-    return {
-      alt: toAltText(filename),
+  if (!tileSrc) {
+    return []
+  }
+
+  const lightboxSrc = lightboxByFilename[fileName] ?? tileSrc
+
+  return [
+    {
+      alt: getAltText(label, fileName),
       lightboxSrc,
       tileSrc,
-    }
-  })
+    },
+  ]
+})
 
 const GallerySection = styled('section')(({ theme }) => ({
   background: theme.palette.background.paper,
