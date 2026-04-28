@@ -148,7 +148,7 @@ const Contact: FC = () => {
 
       form.reset()
       setSubmitState({
-        message: data?.message ?? 'Wiadomość została wysłana',
+        message: 'Wiadomość została wysłana',
         variant: 'success',
       })
     } catch {
