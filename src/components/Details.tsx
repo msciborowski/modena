@@ -5,7 +5,7 @@ import { SectionIntro } from './SectionIntro.tsx'
 const details = [
   { label: 'Powierzchnia', value: '42 m²' },
   { label: 'Pokoje', value: '2 pokoje' },
-  { label: 'Loggia', value: '8 m²' },
+  { label: 'Duży balkon', value: '8 m²' },
   { label: 'Lokalizacja', value: 'ul. Jackowskiego' },
 ]
 
