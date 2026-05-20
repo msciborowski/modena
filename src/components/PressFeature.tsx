@@ -222,7 +222,7 @@ const PressFeature: FC = () => (
     <PressContainer>
       <SectionIntro
         title="Wyróżnione przez Dom i Wnętrze"
-        subtitle="Niezależna publikacja potwierdza to, co czuć już od progu: to mieszkanie ma własny charakter, spójną opowieść i dopracowany detal."
+        subtitle="Niezależna publikacja potwierdza to, co czuć już od progu: mieszkanie ma własny charakter, spójną opowieść i dopracowany detal."
       />
       <PressCard>
         <MetaCard>

@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { Analytics } from './components/Analytics.tsx'
 import { Contact } from './components/Contact.tsx'
 import { Details } from './components/Details.tsx'
 import { Features } from './components/Features.tsx'
@@ -51,7 +50,6 @@ const App = () => {
 
   return (
     <>
-      <Analytics />
       <SkipLink href="#main-content">Przejdź do treści</SkipLink>
       <Header />
       <Main id="main-content">

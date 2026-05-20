@@ -20,7 +20,7 @@ jobs:
       - run: npm run build
       - name: Verify Google Analytics bundle
         run: |
-          if ! grep -R "G-8BE3D0MYMK" dist/assets; then
+          if ! grep -R "G-8BE3D0MYMK" dist/index.html dist/assets; then
             echo "Google Analytics measurement ID was not found in the production bundle."
             exit 1
           fi
