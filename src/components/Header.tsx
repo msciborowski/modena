@@ -5,6 +5,7 @@ import styled from '@emotion/styled'
 const navLinks = [
   { label: 'Start', href: '#intro' },
   { label: 'Galeria', href: '#gallery' },
+  { label: 'Publikacja', href: '#press' },
   { label: 'Historia', href: '#story' },
   { label: 'Mieszkanie', href: '#details' },
   { label: 'Lokalizacja', href: '#location' },
@@ -37,7 +38,14 @@ const Nav = styled('nav')({
   },
 })
 
-const Logo = styled('div')(() => ({
+const Logo = styled('a')(({ theme }) => ({
+  display: 'inline-flex',
+  alignItems: 'center',
+  borderRadius: 4,
+  '&:focus-visible': {
+    outline: `2px solid ${theme.palette.secondary.main}`,
+    outlineOffset: 4,
+  },
   img: {
     height: '2.2rem',
     width: 'auto',
@@ -126,7 +134,7 @@ const Header: FC = () => {
   return (
     <HeaderRoot>
       <Nav aria-label="Główna nawigacja">
-        <Logo onClick={() => (window.location.href = '/')}>
+        <Logo href="#intro" aria-label="Przejdź do początku strony">
           <img src="modena-logo.svg" alt="Modena logo" />
         </Logo>
         <NavList>

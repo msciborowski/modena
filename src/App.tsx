@@ -11,6 +11,7 @@ import { LocationSection } from './components/LocationSection.tsx'
 import { Main } from './components/Main.tsx'
 import { Map } from './components/Map.tsx'
 import { PhoneContactSection } from './components/PhoneContactSection.tsx'
+import { PressFeature } from './components/PressFeature.tsx'
 import { SkipLink } from './components/SkipLink.tsx'
 import { Story } from './components/Story.tsx'
 
@@ -56,6 +57,7 @@ const App = () => {
       <Main id="main-content">
         <Hero />
         <Gallery />
+        <PressFeature />
         <Story />
         <Details />
         <Features />
