@@ -19,9 +19,11 @@
         dataLayer.push(arguments)
       }
 
+      const isGaDebugMode = new URLSearchParams(window.location.search).has('ga_debug')
+
       if (!['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname)) {
         gtag('js', new Date())
-        gtag('config', 'G-8BE3D0MYMK')
+        gtag('config', 'G-8BE3D0MYMK', isGaDebugMode ? { debug_mode: true } : {})
       }
     </script>
   </head>
