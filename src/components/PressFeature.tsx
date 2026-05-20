@@ -62,17 +62,17 @@ const Badge = styled('span')(({ theme }) => ({
   textTransform: 'uppercase',
 }))
 
-const ArticleTitle = styled('h3')(({ theme }) => ({
-  margin: '1.25rem 0 1rem',
-  fontFamily: "'Playfair Display', Georgia, serif",
-  fontSize: '2rem',
-  lineHeight: 1.25,
-  color: theme.palette.primary.main,
-  textWrap: 'balance',
-  '@media (max-width: 768px)': {
-    fontSize: '1.7rem',
-  },
-}))
+// const ArticleTitle = styled('h3')(({ theme }) => ({
+//   margin: '1.25rem 0 1rem',
+//   fontFamily: "'Playfair Display', Georgia, serif",
+//   fontSize: '2rem',
+//   lineHeight: 1.25,
+//   color: theme.palette.primary.main,
+//   textWrap: 'balance',
+//   '@media (max-width: 768px)': {
+//     fontSize: '1.7rem',
+//   },
+// }))
 
 const Lead = styled('p')(({ theme }) => ({
   margin: '0 0 1rem',
