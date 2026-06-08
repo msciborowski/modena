@@ -1,8 +1,8 @@
 import type { FC } from 'react'
 import styled from '@emotion/styled'
 
-const PHONE_NUMBER = '+48 536 024 267'
-const PHONE_NUMBER_LINK = 'tel:+48536024267'
+const PHONE_NUMBER = '+48 602 360 960'
+const PHONE_NUMBER_LINK = 'tel:+48602360960'
 
 const PhoneSection = styled('section')(({ theme }) => ({
   background: theme.palette.background.default,
