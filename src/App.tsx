@@ -1,72 +1,28 @@
-import { useEffect } from 'react'
-import { Contact } from './components/Contact.tsx'
-import { Details } from './components/Details.tsx'
-import { Features } from './components/Features.tsx'
-import { Footer } from './components/Footer.tsx'
-import { Gallery } from './components/Gallery.tsx'
-import { Header } from './components/Header.tsx'
-import { Hero } from './components/Hero.tsx'
-import { LocationSection } from './components/LocationSection.tsx'
-import { Main } from './components/Main.tsx'
-import { Map } from './components/Map.tsx'
-import { PhoneContactSection } from './components/PhoneContactSection.tsx'
-import { PressFeature } from './components/PressFeature.tsx'
-import { SkipLink } from './components/SkipLink.tsx'
-import { Story } from './components/Story.tsx'
+import styled from '@emotion/styled'
+import { colors } from './colors.ts'
 
-const App = () => {
-  useEffect(() => {
-    const elements = Array.from(document.querySelectorAll('.fade-in'))
-    if (elements.length === 0) {
-      return undefined
-    }
+const Root = styled('main')({
+  minHeight: '100dvh',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '16px',
+  backgroundColor: colors.background,
+})
 
-    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      elements.forEach(element => element.classList.add('is-visible'))
-      return undefined
-    }
+const Title = styled('h1')({
+  margin: 0,
+  fontFamily: "'Playfair Display', Georgia, serif",
+  fontWeight: 400,
+  fontSize: 'clamp(1.75rem, 6vw, 3.5rem)',
+  letterSpacing: '0.02em',
+  color: colors.text,
+  textAlign: 'center',
+  overflowWrap: 'anywhere',
+})
 
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible')
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      {
-        threshold: 0,
-        rootMargin: '0px 0px -50px 0px',
-      },
-    )
-
-    elements.forEach(element => observer.observe(element))
-
-    return () => {
-      observer.disconnect()
-    }
-  }, [])
-
-  return (
-    <>
-      <SkipLink href="#main-content">Przejdź do treści</SkipLink>
-      <Header />
-      <Main id="main-content">
-        <Hero />
-        <Gallery />
-        <PressFeature />
-        <Story />
-        <Details />
-        <Features />
-        <LocationSection />
-        <Map />
-        <Contact />
-        <PhoneContactSection />
-      </Main>
-      <Footer />
-    </>
-  )
-}
-
-export { App }
+export const App = () => (
+  <Root>
+    <Title>jackowskiego24.pl</Title>
+  </Root>
+)
